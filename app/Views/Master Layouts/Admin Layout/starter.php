@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Order Drive | Management</title>
+  <title>Order Drive | Admin</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -15,6 +15,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?=base_url('admin assets/plugins/fontawesome-free/css/all.min.css');?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url('admin assets/dist/css/adminlte.min.css')?>">
+
+  <!-- fav icons starts-->
+  <link rel="apple-touch-icon" sizes="180x180" href="<?=base_url('site-identity/apple-touch-icon.png') ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?=base_url('site-identity//favicon-32x32.png') ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url('site-identity//favicon-16x16.png') ?>">
+    <link rel="manifest" href="<?=base_url('site-identity/site.webmanifest') ?>">
+    <!-- favicon ends -->
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -161,8 +168,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="<?=base_url('admin assets/dist/img/AdminLTELogo.png')?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <img src="<?=base_url('site-identity/android-chrome-512x512.png')?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
+      <span class="brand-text d-block font-weight-semibold" style="font-size:20px !important;"><span class="font-weight-bold">Order</span> Drive</span>
     </a>
 
     <!-- Sidebar -->

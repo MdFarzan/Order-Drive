@@ -20,14 +20,111 @@
     <!-- container starts -->
     <div class="container">
         <!-- header starts -->
-        <header>
-            <span id="logo"></span>
+        <header class="text-center pb-3">
+            <span id="logo"><img src="site-identity/logo-304-X-87.jpg"></span>
         </header>
         <!-- header ends -->
+        
+        <!-- main starts -->
+        <main class="mt-3">
+            <!-- row starts -->
+            <div class="row justify-content-center">
+                <!-- col starts -->
+                <div class="col-md-8 col-lg-6">
+                    <!-- nav tab starts -->
+                    <nav>
+                        
+                        <div class="nav nav-tabs text-center justify-content-center" id="nav-tab" role="tablist">
+                            <a class="nav-link active" id="nav-vendor-tab" data-toggle="tab" href="#nav-vendor" role="tab" aria-controls="nav-home" aria-selected="true">Sign in As <strong>Vendor</strong></a>
+                            
+                            <a class="nav-link" id="nav-admin-tab" data-toggle="tab" href="#nav-admin" role="tab" aria-controls="nav-contact" aria-selected="false">Sign in As <strong>Admin</strong></a>
+                        </div>
+                    </nav>
+
+                    <div class="tab-content border border-left-2 px-2 px-md-5 py-4" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-vendor" role="tabpanel" aria-labelledby="nav-admin-tab">
+                            <!-- form starts -->
+                                <form action="vendor-sign-in/" class="py-md-4" method="post">
+                                    <h3>Sign in as Vendor</h3>
+                                    <hr />
+                                    <!-- form group starts -->
+                                        <div class="form-group">
+                                            <label for="email">Email: </label>
+                                            <input type="email" id="email" name="user-mail" class="form-control" />
+                                        </div>
+                                    <!-- form group ends -->
+
+                                    <!-- form group starts -->
+                                    <div class="form-group">
+                                            <label for="passkey">Password: </label>
+                                            <input type="password" name="user-passkey" class="form-control" />
+                                    </div>
+                                    <!-- form group ends -->
+
+                                    <!-- form group starts -->
+                                    <div class="form-group text-center">
+                                            <input type="submit" class="btn btn-primary" value="Sign in" />
+                                    </div>
+                                    <!-- form group ends -->
+                                </form>
+                            <!-- form ends -->
+
+                                <!-- display sign in support start -->
+                                <?php 
+                                    if(defined('VENDOR_SIGNIN_SUPPORT')){
+                                ?>
+                                    <p>Trouble in Sign? Contact our <a href="mailto:<?=VENDOR_SIGNIN_SUPPORT;?>">Vendor Support</a></p>
+
+                                <?php }?>
+                                <!-- display sign in support end -->
+                        </div>
+                        
+                        <div class="tab-pane fade" id="nav-admin" role="tabpanel" aria-labelledby="nav-admin-tab">
+                             <!-- form starts -->
+                             <form action="admin-sign-in/" class="py-md-4" method="post">
+                                    <h3>Sign in as Admin</h3>
+                                    <hr />
+                                    <!-- form group starts -->
+                                        <div class="form-group">
+                                            <label for="email">Email: </label>
+                                            <input type="email" id="email" name="user-mail" class="form-control" />
+                                        </div>
+                                    <!-- form group ends -->
+
+                                    <!-- form group starts -->
+                                    <div class="form-group">
+                                            <label for="passkey">Password: </label>
+                                            <input type="password" name="user-passkey" class="form-control" />
+                                    </div>
+                                    <!-- form group ends -->
+
+                                    <!-- form group starts -->
+                                    <div class="form-group text-center">
+                                            <input type="submit" class="btn btn-primary" value="Sign in" />
+                                    </div>
+                                    <!-- form group ends -->
+                                </form>
+                            <!-- form ends -->
+
+                        </div>
+                    </div>
+
+                    <!-- nav tab ends -->
+                </div>
+                <!-- col ends -->
+            </div>
+            <!-- row ends -->
+        </main>
+        <!-- main ends -->
+
     </div>
     <!-- container ends -->
     
-
+    <!-- footer starts -->
+        <footer class="container">
+            
+        </footer>
+    <!-- footer ends -->
 
     <!-- body cdns -->
     <?=$this->include('includes/bodyCdn.php')?>

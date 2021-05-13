@@ -60,7 +60,12 @@
                                             <input type="password" name="user-passkey" class="form-control" />
                                     </div>
                                     <!-- form group ends -->
-
+                                    <div class="form-check form-check-inline">
+                                            <input type="checkbox" id="remember" name="remember-me" class="form-check-input" />
+                                            <label class="form-check-label" for="remember"> Remember me</label>
+                                    </div>
+                                    <!-- form group ends -->
+                                    
                                     <!-- form group starts -->
                                     <div class="form-group text-center">
                                             <input type="submit" class="btn btn-primary" value="Sign in" />
@@ -95,6 +100,12 @@
                                     <div class="form-group">
                                             <label for="passkey">Password: </label>
                                             <input type="password" name="user-passkey" class="form-control" />
+                                    </div>
+                                    <!-- form group ends -->
+                                     <!-- form group ends -->
+                                    <div class="form-check form-check-inline">
+                                            <input type="checkbox" id="rememberAdmin" name="remember-me" class="form-check-input" />
+                                            <label class="form-check-label" for="rememberAdmin"> Remember me</label>
                                     </div>
                                     <!-- form group ends -->
 

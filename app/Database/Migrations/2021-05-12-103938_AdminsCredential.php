@@ -26,6 +26,15 @@ class AdminsCredential extends Migration
 				'type'       => 'VARCHAR',
 				'constraint' => '255',
 			],
+			'active_status'       => [
+				'type'       => 'BOOLEAN',
+				'default'	 =>	true,
+			],
+			'remember_token'       => [
+				'type'       => 'VARCHAR',
+				'constraint' => '255',
+				'null'		=>	true,
+			],
 			'created_at datetime default current_timestamp',
 			'updated_at datetime default current_timestamp',
 	]);

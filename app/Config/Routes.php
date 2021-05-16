@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/site-management','SiteManagement::index');
+$routes->post('admin-sign-in/','AdminAuthController::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -1,4 +1,18 @@
+
+
 <!DOCTYPE html>
+<?php 
+
+  
+    
+  
+
+  $sess = \Config\Services::session();
+  
+  // var_dump(checkSession('credentials'));
+  var_dump($sess->get('credentials'));
+  var_dump($sess->get('privileges'));
+?>
 <!--
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.

@@ -8,4 +8,17 @@ class SiteManagement extends BaseController{
         }
         return view('Master Layouts/Admin Layout/starter.php');
     }
+
+    //logout functionality
+    function signout(){
+        //destroying session
+        session()->destroy();
+
+        //clearing cookies
+        foreach($_COOKIE as $name => $val)
+            setcookie($name,$val,'/',1);
+        
+        //redirecting to home page
+        return redirect()->to(site_url());
+    }
 }

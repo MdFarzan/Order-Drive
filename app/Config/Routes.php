@@ -35,6 +35,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/site-management','SiteManagement::index');
 $routes->post('admin-sign-in/','AdminAuthController::index');
+$routes->get('site-management/signout/','SiteManagement::signout');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

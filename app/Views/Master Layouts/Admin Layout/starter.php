@@ -8,7 +8,7 @@
   
 
   $sess = \Config\Services::session();
-  
+  // echo checkSession('credentials')['name'];
   // var_dump(checkSession('credentials'));
   var_dump($sess->get('credentials'));
   var_dump($sess->get('privileges'));
@@ -36,6 +36,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url('site-identity//favicon-16x16.png') ?>">
     <link rel="manifest" href="<?=base_url('site-identity/site.webmanifest') ?>">
     <!-- favicon ends -->
+
+    custom stylesheet
+    <link rel="stylesheet" href="<?=base_url('css/style.css')?>">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -58,7 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
         </a>
@@ -77,18 +80,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </form>
         </div>
-      </li>
+      </li> -->
 
       <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
           <span class="badge badge-danger navbar-badge">3</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
+          <a href="#" class="dropdown-item"> -->
             <!-- Message Start -->
-            <div class="media">
+            <!-- <div class="media">
               <img src="<?=base_url('admin assets/dist/img/user1-128x128.jpg')?>" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
@@ -98,13 +101,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <p class="text-sm">Call me whenever you can...</p>
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
-            </div>
+            </div> -->
             <!-- Message End -->
-          </a>
+          <!-- </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="#" class="dropdown-item"> -->
             <!-- Message Start -->
-            <div class="media">
+            <!-- <div class="media">
               <img src="<?=base_url('admin assets/dist/img/user8-128x128.jpg')?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
@@ -114,13 +117,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <p class="text-sm">I got your message bro</p>
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
-            </div>
+            </div> -->
             <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <!-- </a> -->
+          <!-- <div class="dropdown-divider"></div> -->
+          <!-- <a href="#" class="dropdown-item"> -->
             <!-- Message Start -->
-            <div class="media">
+            <!-- <div class="media">
               <img src="<?=base_url('admin assets/dist/img/user3-128x128.jpg')?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
@@ -130,15 +133,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <p class="text-sm">The subject goes here</p>
                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
               </div>
-            </div>
+            </div> -->
             <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
+          <!-- </a> -->
+          <!-- <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
-      </li>
+      </li> -->
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
@@ -163,15 +166,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
+        <a class="nav-link" title="Sign out" href="signout/" role="button">
+          <i class="fas fa-sign-out-alt"></i>
+          
         </a>
       </li>
     </ul>
@@ -190,11 +194,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="<?=base_url('admin assets/dist/img/user2-160x160.jpg')?>" class="img-circle elevation-2" alt="User Image">
+        <div class="image line-height-25">
+          <!-- <img src="<?=base_url('admin assets/dist/img/user2-160x160.jpg')?>" class="img-circle elevation-2" alt="User Image"> -->
+          <i class="nav-icon fas fa-user-shield" id="admin-icon"></i>
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block text-center" style="font-size:20px;"><?=checkSession('credentials')['name']?></a>
         </div>
       </div>
 

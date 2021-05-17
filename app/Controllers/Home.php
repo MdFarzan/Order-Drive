@@ -10,6 +10,9 @@ class Home extends BaseController
 	// }
 
 	public function index(){
+		if(!(checkSession('credentials')==false && checkSession('privileges')==false)){
+            return redirect()->to('site-management/');
+        }
 		return view('index');
 	}
 }

@@ -5,3 +5,8 @@
     color:white;
     font-size:22px;
 }
+
+/* indention for nested menu  */
+.nav-sidebar .nav-treeview > .nav-item > .nav-link > .nav-icon{
+    margin-left:10px !important;
+}

@@ -7,11 +7,15 @@
     
   
 
-  $sess = \Config\Services::session();
-  // echo checkSession('credentials')['name'];
-  // var_dump(checkSession('credentials'));
-  var_dump($sess->get('credentials'));
-  var_dump($sess->get('privileges'));
+  // $sess = \Config\Services::session();
+  // // echo checkSession('credentials')['name'];
+  // var_dump(checkSession('privileges'));
+  // var_dump($sess->get('credentials'));
+  // var_dump($sess->get('privileges'));
+  if(checkSession('privileges')){
+    $privileges = checkSession('privileges');
+    var_dump($privileges);
+  }
 ?>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -37,7 +41,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="manifest" href="<?=base_url('site-identity/site.webmanifest') ?>">
     <!-- favicon ends -->
 
-    custom stylesheet
+    <!-- custom stylesheet -->
     <link rel="stylesheet" href="<?=base_url('css/style.css')?>">
 </head>
 <body class="hold-transition sidebar-mini">
@@ -220,35 +224,224 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+           <!-- menu item starts -->
+           <li class="nav-item menu-open">
+            <a href="<?=site_url('site-management/');?>" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Starter Pages
+                Dashboard
+              </p>
+            </a>
+          </li>
+          <!-- menu item ends -->
+
+          <!-- menu starts -->
+          <?php if($privileges['admins_management']==1){ ?>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <!-- <i class="fas fa-users-cog nav-icon"></i> -->
+              <i class="fas fa-user-cog nav-icon"></i>
+              <p>
+                Admin Managment
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="<?=site_url('site-management/all-admin/');?>" class="nav-link">
+                  <!-- <i class="far fa-circle"></i> -->
+                  <i class="fas fa-users-cog nav-icon"></i>
+                  <p>All Admin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=site_url('site-management/add-dmin/');?>" class="nav-link">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <i class="fas fa-user-shield nav-icon"></i>
+                  <p>Add Admin</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <?php }?>
+          <!-- menu ends -->
+
+          <!-- menu starts -->
+          <?php if($privileges['vendor_management']==1){ ?>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+              <i class="nav-icon fas fa-users-cog"></i>
+              <p>
+                Vendor Managment
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
+                <a href="<?=site_url('site-management/all-vendor/');?>" class="nav-link">
+                  <i class="fas fa-users nav-icon"></i>
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <p>All Vendors</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
+                <a href="<?=site_url('site-management/add-vendor/');?>" class="nav-link">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <i class="fas fa-user-plus nav-icon"></i>
+                  <p>Add Vendor</p>
                 </a>
               </li>
             </ul>
           </li>
+          <?php } ?>
+          <!-- menu ends -->
+
+          <!-- menu starts -->
+          <?php if($privileges['category_management']==1){ ?>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+              <i class="nav-icon fas fa-border-all"></i>
               <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
+                Category Managment
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=site_url('site-management/all-categories/');?>" class="nav-link">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <i class="fas fa-th-list nav-icon"></i>
+                  <p>All Categories</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=site_url('site-management/add-categories/');?>" class="nav-link">
+                  <i class="fas fa-bookmark nav-icon"></i>
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <p>Add Category</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <?php } ?>
+          <!-- menu ends -->
+
+          <!-- menu starts -->
+          <?php if($privileges['product_management']==1){ ?>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+              <i class="nav-icon fas fa-box-open"></i>
+              <p>
+                Product Managment
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=site_url('site-management/all-product/');?>" class="nav-link">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <i class="fas fa-boxes nav-icon"></i>
+                  <p>All Products</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=site_url('site-management/add-product/');?>" class="nav-link">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <!-- <i class="fab fa-buffer nav-icon"></i> -->
+                  <i class="nav-icon fas fa-cart-plus"></i>
+                  <p>Add Product</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=site_url('site-management/inventory/');?>" class="nav-link">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <i class="nav-icon fas fa-list-ol"></i>
+                  <p>Inventory</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <?php } ?>
+          <!-- menu ends -->
+
+          <!-- menu starts -->
+          <?php if($privileges['order_management']==1){ ?>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+              <i class="nav-icon fas fa-archive"></i>
+              <p>
+                Order Managment
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=site_url('site-management/all-product/');?>" class="nav-link">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <i class="nav-icon fas fa-box"></i>
+                  <p>All Orders</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=site_url('site-management/add-product/');?>" class="nav-link">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <i class="nav-icon fas fa-briefcase-medical"></i>
+                  <p>Place Order</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=site_url('site-management/inventory/');?>" class="nav-link">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <i class="nav-icon fas fa-calendar-minus"></i>
+                  <p>Pending Orders</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <?php } ?>
+          <!-- menu ends -->
+
+          <!-- menu starts -->
+          <?php if($privileges['report_management']==1){ ?>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Reports
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?=site_url('site-management/sales-report/');?>" class="nav-link">
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <i class="fas fa-chart-area nav-icon"></i>
+                  <p>Sales Report</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?=site_url('site-management/revenue-report/');?>" class="nav-link">
+                  <i class="nav-icon fas fa-chart-line"></i>
+                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                  <p>Revenue Report</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <?php } ?>
+          <!-- menu ends -->
+          
+         
+          <li class="nav-item">
+            <a href="signout/" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+                Sign out
               </p>
             </a>
           </li>

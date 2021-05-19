@@ -33,7 +33,7 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/site-management','SiteManagement::index');
+$routes->get('/site-management/dashboard','SiteManagement::index');
 $routes->post('admin-sign-in/','AdminAuthController::index');
 $routes->get('site-management/signout/','SiteManagement::signout');
 /*

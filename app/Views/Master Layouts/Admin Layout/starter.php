@@ -189,7 +189,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="<?=base_url('site-management/dashboard');?>" class="brand-link">
       <img src="<?=base_url('site-identity/android-chrome-512x512.png')?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
       <span class="brand-text d-block font-weight-semibold" style="font-size:20px !important;"><span class="font-weight-bold">Order</span> Drive</span>
     </a>
@@ -226,7 +226,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
            <!-- menu item starts -->
            <li class="nav-item menu-open">
-            <a href="<?=site_url('site-management/');?>" class="nav-link active">
+            <a href="<?=site_url('site-management/dashboard');?>" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard

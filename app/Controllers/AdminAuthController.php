@@ -40,7 +40,7 @@ class AdminAuthController extends BaseController
 				break;
 			
 			case 1:
-				return redirect()->to('site-management/');
+				return redirect()->to('/site-management/dashboard');
 				break;
 			
 			case 2:

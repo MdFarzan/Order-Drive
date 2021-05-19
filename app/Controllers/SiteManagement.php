@@ -6,7 +6,7 @@ class SiteManagement extends BaseController{
         if((checkSession('credentials')==false && checkSession('privileges')==false)){
             return redirect()->to(site_url());
         }
-        return view('Master Layouts/Admin Layout/starter.php');
+        return view('Admin Views/Dashboard');
     }
 
     //logout functionality

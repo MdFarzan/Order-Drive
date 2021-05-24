@@ -14,7 +14,7 @@
   // var_dump($sess->get('privileges'));
   if(checkSession('privileges')){
     $privileges = checkSession('privileges');
-    var_dump($privileges);
+    // var_dump($privileges);
   }
 ?>
 <!--
@@ -255,7 +255,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=site_url('site-management/add-dmin/');?>" class="nav-link">
+                <a href="<?=site_url('site-management/add-admin/');?>" class="nav-link">
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <i class="fas fa-user-shield nav-icon"></i>
                   <p>Add Admin</p>

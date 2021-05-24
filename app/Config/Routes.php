@@ -36,6 +36,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/site-management/dashboard','SiteManagement::index');
 $routes->post('admin-sign-in/','AdminAuthController::index');
 $routes->get('site-management/signout/','SiteManagement::signout');
+$routes->match(['get','post'],'site-management/add-admin/','SiteManagement::adminCreation');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

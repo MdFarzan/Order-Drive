@@ -9,17 +9,7 @@ class SiteManagement extends BaseController{
         return view('Admin Views/Dashboard');
     }
 
-    //admin creation
-    function adminCreation(){
-        
-        //when method is post then
-        if($this->request->getMethod()=='post'){
-            echo "<hr>";
-            var_dump($this->request->getVar());
-        }
-
-        return view('Admin Views/AdminCreation');
-    }
+    
 
     //logout functionality
     function signout(){

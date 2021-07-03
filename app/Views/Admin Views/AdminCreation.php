@@ -92,7 +92,7 @@ $this->section('main_content');
                       <div class="col-md-3">
                         <!-- checkbox starts -->
                         <div class="custom-control custom-switch py-2 my-2">
-                          <input type="checkbox" class="custom-control-input" id="admin-management" name="admin-priviliges[]" />
+                          <input type="checkbox" class="custom-control-input" id="admin-management" name="admin-management" />
                           <label class="custom-control-label" for="admin-management">Admin Management</label>
                         </div>
                         <!-- checkbox ends -->            
@@ -103,7 +103,7 @@ $this->section('main_content');
                       <div class="col-md-3">
                         <!-- checkbox starts -->
                         <div class="custom-control custom-switch py-2 my-2">
-                          <input type="checkbox" class="custom-control-input" id="category-management" name="admin-priviliges[]" />
+                          <input type="checkbox" class="custom-control-input" id="category-management" name="category-management" />
                           <label class="custom-control-label" for="category-management">Category Management</label>
                         </div>
                         <!-- checkbox ends -->
@@ -114,7 +114,7 @@ $this->section('main_content');
                       <div class="col-md-3">
                         <!-- checkbox starts -->
                         <div class="custom-control custom-switch py-2 my-2">
-                          <input type="checkbox" class="custom-control-input" id="product-management" name="admin-priviliges[]" />
+                          <input type="checkbox" class="custom-control-input" id="product-management" name="product-management" />
                           <label class="custom-control-label" for="product-management">Product Management</label>
                         </div>
                         <!-- checkbox ends -->
@@ -124,7 +124,7 @@ $this->section('main_content');
                       <div class="col-md-3">
                         <!-- checkbox starts -->
                         <div class="custom-control custom-switch py-2 my-2">
-                          <input type="checkbox" class="custom-control-input" id="vendor-management" name="admin-priviliges[]" />
+                          <input type="checkbox" class="custom-control-input" id="vendor-management" name="vendor-management" />
                           <label class="custom-control-label" for="vendor-management">Vendor Management</label>
                         </div>
                         <!-- checkbox ends -->
@@ -134,7 +134,7 @@ $this->section('main_content');
                       <div class="col-md-3">
                         <!-- checkbox starts -->
                         <div class="custom-control custom-switch py-2 my-2">
-                          <input type="checkbox" class="custom-control-input" id="order-management" name="admin-priviliges[]" />
+                          <input type="checkbox" class="custom-control-input" id="order-management" name="order-management" />
                           <label class="custom-control-label" for="order-management">Order Management</label>
                         </div>
                         <!-- checkbox ends -->
@@ -145,7 +145,7 @@ $this->section('main_content');
                        <div class="col-md-3">
                         <!-- checkbox starts -->
                         <div class="custom-control custom-switch py-2 my-2">
-                          <input type="checkbox" class="custom-control-input" id="report-management" name="admin-priviliges[]" />
+                          <input type="checkbox" class="custom-control-input" id="report-management" name="report-management" />
                           <label class="custom-control-label" for="report-management">Reports Management</label>
                         </div>
                         <!-- checkbox ends -->

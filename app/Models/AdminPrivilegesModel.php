@@ -7,13 +7,13 @@ class AdminPrivilegesModel extends Model{
 
     protected $DBGroup              = 'default';
 	protected $table                = 'od_admin_privileges';
-	protected $primaryKey           = 'admin_id';
+	// protected $primaryKey           = 'admin_id';
 	//protected $useAutoIncrement     = true;
 	//protected $insertID             = 1;
 	protected $returnType           = 'array';
 	//protected $useSoftDelete        = false;
 	//protected $protectFields        = true;
-	protected $allowedFields        = ['category_management', 'product_management', 'vendor_management',
+	protected $allowedFields        = ['admin_id', 'category_management', 'product_management', 'vendor_management',
                                         'admins_management', 'order_management', 'report_management'];
 
 	// Dates

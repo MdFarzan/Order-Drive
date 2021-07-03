@@ -16,14 +16,14 @@ if(!function_exists('create_user')){
             $priv_data['admin_id'] = $id;
             $db_privileges->insert($priv_data);
 
-            //if transaction successfull
+            //if transaction is not successfull
             if($db_credential->transStatus() == FALSE || $db_privileges->transStatus() == FALSE){
             $db_credential->transRollback();
             $db_privileges->transRollback();
 
             }
 
-            //if transaction not successfull
+            //if transaction is successfull
             else{
                 $db_credential->transCommit();
                 $db_privileges->transCommit();

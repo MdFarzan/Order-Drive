@@ -51,6 +51,7 @@ class AdminManagement extends BaseController
 
         }
 
+		echo base_url();
         return view('Admin Views/AdminCreation');
     }
 	

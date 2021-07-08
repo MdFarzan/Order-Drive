@@ -177,7 +177,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" title="Sign out" href="signout/" role="button">
+        <a class="nav-link" title="Sign out" href="<?=site_url('site-management/signout/');?>" role="button">
           <i class="fas fa-sign-out-alt"></i>
           
         </a>
@@ -438,7 +438,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           
          
           <li class="nav-item">
-            <a href="signout/" class="nav-link">
+            <a href="<?=site_url('site-management/signout/');?>" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
                 Sign out

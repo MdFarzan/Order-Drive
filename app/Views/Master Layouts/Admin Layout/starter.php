@@ -41,8 +41,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="manifest" href="<?=base_url('site-identity/site.webmanifest') ?>">
     <!-- favicon ends -->
 
-    <!-- custom stylesheet -->
-    <link rel="stylesheet" href="<?=base_url('css/style.css')?>">
+    <!-- custom admin assets -->
+    <link rel="stylesheet" href="<?=base_url('admin custom-assets/style.css')?>">
+    
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -487,9 +488,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- jQuery -->
 <script src="<?=base_url('admin assets/plugins/jquery/jquery.min.js')?>"></script>
+<script src="<?=base_url('admin custom-assets/jQueryTableSorter.js')?>"></script>
 <!-- Bootstrap 4 -->
 <script src="<?=base_url('admin assets/plugins/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
 <!-- AdminLTE App -->
 <script src="<?=base_url('admin assets/dist/js/adminlte.min.js')?>"></script>
+
+<!-- custom script -->
+<script src="<?=base_url('admin custom-assets/script.js')?>"></script>
 </body>
 </html>

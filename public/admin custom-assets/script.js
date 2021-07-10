@@ -1,4 +1,4 @@
 $(function(){
     alert('working');
-    $('#sort-table').tablesorter();
+    $('#sort-table').DataTable();
 });

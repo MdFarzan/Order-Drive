@@ -44,6 +44,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- custom admin assets -->
     <link rel="stylesheet" href="<?=base_url('admin custom-assets/style.css')?>">
     
+    <!-- datatable sorting plugin css -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -493,7 +495,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="<?=base_url('admin assets/plugins/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
 <!-- AdminLTE App -->
 <script src="<?=base_url('admin assets/dist/js/adminlte.min.js')?>"></script>
-
+<!-- datatable sorting plugin script -->
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" defer></script>
 <!-- custom script -->
 <script src="<?=base_url('admin custom-assets/script.js')?>"></script>
 </body>

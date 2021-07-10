@@ -51,8 +51,24 @@ class AdminManagement extends BaseController
 
         }
 
-		echo base_url();
+		
         return view('Admin Views/AdminCreation');
     }
+
+	//getting all admins
+	public function allAdmins(){
+
+		$admin_db = new AdminAuthModel();
+		
+		
+		if($admin_db->countAll()>0)
+			$data = array('data' => $admin_db->findAll());
+
+		else
+			$data = false;
+		
+
+		return view('Admin Views/AllAdmins',$data);
+	}
 	
 }

@@ -73,12 +73,12 @@ $this->section('main_content');
                       <td><?=date('d-m-Y', strtotime($row['created_at']))?></td>
                       <td><?=date('d-m-Y', strtotime($row['updated_at']))?></td>
                       <td>
-                          <form method="post" action="/edit-admin" class="d-inline">
+                          <form method="get" action="<?= site_url('site-management/edit-admin')?>" class="d-inline">
                             <input type="hidden" name="admin_id" value="<?= $row['id'] ?>">
                             <input type="submit" class="btn btn-info" onclick="return confirm('Are you sure to edit admin?');" value="Edit">
                           </form>
 
-                          <form method="post" action="/delete-admin" class="d-inline">
+                          <form method="post" action="<?= site_url('site-management/delete-admin')?>" class="d-inline">
                             <input type="hidden" name="admin_id" value="<?= $row['id'] ?>">
                             <input type="submit" class="btn btn-warning" onclick="return confirm('Delete selected Admin?');" value="Delete">
                           </form>

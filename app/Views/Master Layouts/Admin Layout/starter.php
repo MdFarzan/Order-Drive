@@ -48,6 +48,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 </head>
 <body class="hold-transition sidebar-mini">
+
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -458,7 +459,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- section rendering -->
-
+    <?php 
+    //getting alert if exist
+    getAlert();
+    
+    ?>
     <?= $this->renderSection("main_content"); ?>
     
   </div>

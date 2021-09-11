@@ -49,6 +49,10 @@ class AdminManagement extends BaseController
 
 			create_user(new AdminAuthModel(), new AdminPrivilegesModel(), $cred, $priv, true);
 
+			setAlert(['type'=>'success', 'desc'=>'Admin Created successfully.']);
+			return redirect()->to(site_url('site-management/all-admin/'));
+
+
         }
 
 		

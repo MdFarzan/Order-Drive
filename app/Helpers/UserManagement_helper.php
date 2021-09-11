@@ -21,12 +21,18 @@ if(!function_exists('create_user')){
             $db_credential->transRollback();
             $db_privileges->transRollback();
 
+            setAlert(['type'=>'failed', 'desc'=>'Unable to create admin!']);
+			return redirect()->to(site_url('site-management/add-admin/'));
+
             }
 
             //if transaction is successfull
             else{
                 $db_credential->transCommit();
                 $db_privileges->transCommit();
+
+                setAlert(['type'=>'success', 'desc'=>'Admin Created successfully.']);
+			    return redirect()->to(site_url('site-management/all-admin/'));
             }
 
             

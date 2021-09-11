@@ -40,6 +40,7 @@ $routes->get('site-management/signout/','SiteManagement::signout');
 //admin management routes
 $routes->match(['get','post'],'site-management/add-admin/','AdminManagement::adminCreation');
 $routes->get('/site-management/all-admin/', 'AdminManagement::allAdmins');
+$routes->match(['get', 'post'], 'site-management/edit-admin', 'AdminManagement::editAdmin');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

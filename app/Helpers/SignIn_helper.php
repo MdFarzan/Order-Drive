@@ -17,6 +17,10 @@ if(!function_exists('signIn')){
                 //verifying password | if matched   
                 if(password_verify($u_passkey, $db_passkey)){
                     
+                    // checking is admin suspended
+                    if($credential['active_status']==0)
+                        return 3;
+
                     //checking remember token
                     if($remember_token == true){
                         

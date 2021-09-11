@@ -49,6 +49,13 @@ class AdminAuthController extends BaseController
 						'msg'=> ' Please enter correct email']);
 				return redirect()->to(site_url());
 				break;
+
+			case 3:
+			
+				setFlashError('admin',['title'=>'Suspended',
+							'msg'=> ' Please contact from Super Admin.']);
+					return redirect()->to(site_url());
+					break;
 		}
 
 		

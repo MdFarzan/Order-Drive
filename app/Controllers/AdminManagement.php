@@ -148,9 +148,44 @@ class AdminManagement extends BaseController
 			return view('Admin Views/AdminModification', $data);
 			
 		}	
-		// var_dump($data);
-		// die();
+		
 		
 	}
+
+	// delete admin functionality
+	public function deleteAdmin(){
+
+		$admin_db = new AdminAuthModel();
+		$privileges_db = new AdminPrivilegesModel();
+
+		if($this->request->getMethod() == 'post'){
+			$id = $this->request->getVar('admin_id');
+
+			$admin_db->transBegin();
+			$privileges_db->transBegin();
+			
+
+			$privileges_db->where(['admin_id'=> $id])->delete();
+			$admin_db->where(['id'=>$id])->delete();
+			// $privileges_db->update($priv_data);
+			
+			if ($admin_db->transStatus() === false || $privileges_db->transStatus() === false) {
+				setAlert(['type'=>'failed', 'desc'=>'Unable to delete admin!']);
+				$admin_db->transRollback();
+				$privileges_db->transRollback();
+			} else {
+				$admin_db->transCommit();
+				$privileges_db->transCommit();
+				setAlert(['type'=>'success', 'desc'=>'Admin Deleted successfully.']);
+				
+			}
+			return redirect()->to(site_url('site-management/all-admin/'));
+
+		}
+
+
+	}
+
+
 	
 }

@@ -16,6 +16,12 @@
     $privileges = checkSession('privileges');
     // var_dump($privileges);
   }
+
+  $uri = service('uri');
+  $current_link = $uri->getSegment(2);
+  // echo $current_link;
+
+
 ?>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -229,8 +235,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
            <!-- menu item starts -->
-           <li class="nav-item menu-open">
-            <a href="<?=site_url('site-management/dashboard');?>" class="nav-link active">
+           <li class="nav-item">
+            <a href="<?=site_url('site-management/dashboard');?>" class="nav-link <?php if($current_link=='dashboard') echo 'active'; ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -241,8 +247,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- menu starts -->
           <?php if($privileges['admins_management']==1){ ?>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item <?php if($current_link=='all-admin' || $current_link=='add-admin') echo 'menu-open'; ?>">
+            <a href="#" class="nav-link <?php if($current_link=='all-admin' || $current_link=='add-admin') echo 'active'; ?>">
               <!-- <i class="fas fa-users-cog nav-icon"></i> -->
               <i class="fas fa-user-cog nav-icon"></i>
               <p>
@@ -252,14 +258,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item">
-                <a href="<?=site_url('site-management/all-admin/');?>" class="nav-link">
+                <a href="<?=site_url('site-management/all-admin/');?>" class="nav-link <?php if($current_link=='all-admin') echo 'active'; ?>">
                   <!-- <i class="far fa-circle"></i> -->
                   <i class="fas fa-users-cog nav-icon"></i>
                   <p>All Admin</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=site_url('site-management/add-admin/');?>" class="nav-link">
+                <a href="<?=site_url('site-management/add-admin/');?>" class="nav-link <?php if($current_link=='add-admin') echo 'active'; ?>">
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <i class="fas fa-user-shield nav-icon"></i>
                   <p>Add Admin</p>

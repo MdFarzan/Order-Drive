@@ -27,7 +27,7 @@ class VendorManagement extends Migration
 			],
 
 			'active_status' => ['type' => 'BOOLEAN',
-								'default'=> false,
+								'default'=> true,
 			],
 
 			'remember_token' => ['type' => 'VARCHAR',
@@ -66,6 +66,12 @@ class VendorManagement extends Migration
 						'type' => 'VARCHAR',
 						'constraint' => '255',
 						'null' => false,
+			],
+
+			'secondary_address' => [
+				'type' => 'VARCHAR',
+				'constraint' => '255',
+				'null' => true,
 			],
 
 		]);

@@ -31,7 +31,7 @@ $this->section('main_content');
       <div class="container-fluid mb-5">
 
         <!-- form starts -->
-        <form action="" method="POST" autocomplete="off">
+        <form action="<?php echo htmlspecialchars(site_url('site-management/add-vendor/')); ?>" method="POST" autocomplete="off">
            <!-- card starts -->
            <div class="card">
               <div class="card-header"><div class="card-title">Credentials</div></div>
@@ -99,7 +99,7 @@ $this->section('main_content');
                           <!-- form group starts -->
                           <div class="form-group">
                             <label for="primary-address">Primary Address: <span class="text-danger">*</span></label>
-                            <textarea class="form-control" id="primary-address" rows="3" required></textarea>
+                            <textarea class="form-control" id="primary-address" name="primary-address" rows="3" required></textarea>
                           </div>
                           <!-- form group ends -->
                       </div>
@@ -110,7 +110,7 @@ $this->section('main_content');
                           <!-- form group starts -->
                           <div class="form-group">
                             <label for="secondary-address">Secondary Address: </label>
-                            <textarea class="form-control" id="secondary-address" rows="3"></textarea>
+                            <textarea class="form-control" id="secondary-address" name="secondary-address" rows="3"></textarea>
                           </div>
                           <!-- form group ends -->
                       </div>

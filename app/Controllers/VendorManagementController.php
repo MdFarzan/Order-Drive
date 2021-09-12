@@ -10,18 +10,23 @@ class VendorManagementController extends BaseController
 {
 	// by default for sign in
 	public function index()
-	{
+	{	
+		$cred_db = new VendorCredentialModel();
+		$profile_db = new VendorProfileModel();
 		
-		if($this->request->getMethod() == 'post'){
 
-			var_dump($this->request->getVar());
-		}
+		if($profile_db->countAll()>0)
+		$data = array('cred_data' => $cred_db->findAll(),
+						'profile_data' => $profile_db->findAll()
 
-		// if request method is get
-		else{
+		);
 
-			return view('/Admin Views/VendorCreation');
-		}
+		else
+		$data = false;
+	
+
+		return view('/Admin Views/AllVendors', $data);
+		
 
 	}
 

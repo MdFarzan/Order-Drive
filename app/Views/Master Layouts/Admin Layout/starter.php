@@ -278,8 +278,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- menu starts -->
           <?php if($privileges['vendor_management']==1){ ?>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item <?php if($current_link=='all-vendor' || $current_link=='add-vendor') echo 'menu-open'; ?>">
+            <a href="#" class="nav-link <?php if($current_link=='all-vendor' || $current_link=='add-vendor') echo 'active'; ?>">
               <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
               <i class="nav-icon fas fa-users-cog"></i>
               <p>
@@ -289,14 +289,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=site_url('site-management/all-vendor/');?>" class="nav-link">
+                <a href="<?=site_url('site-management/all-vendor/');?>" class="nav-link <?php if($current_link=='all-vendor') echo 'active'; ?>">
                   <i class="fas fa-users nav-icon"></i>
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <p>All Vendors</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=site_url('site-management/add-vendor/');?>" class="nav-link">
+                <a href="<?=site_url('site-management/add-vendor/');?>" class="nav-link <?php if($current_link=='add-vendor') echo 'active'; ?>">
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <i class="fas fa-user-plus nav-icon"></i>
                   <p>Add Vendor</p>

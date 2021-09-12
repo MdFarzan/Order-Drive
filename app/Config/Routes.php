@@ -42,6 +42,10 @@ $routes->match(['get','post'],'site-management/add-admin/','AdminManagement::adm
 $routes->get('/site-management/all-admin/', 'AdminManagement::allAdmins');
 $routes->match(['get', 'post'], 'site-management/edit-admin', 'AdminManagement::editAdmin');
 $routes->post('/site-management/delete-admin/', 'AdminManagement::deleteAdmin');
+
+// vendor management routes
+$routes->match(['get', 'post'], 'site-management/add-vendor/', 'VendorManagementController::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

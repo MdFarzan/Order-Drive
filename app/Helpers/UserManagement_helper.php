@@ -78,7 +78,7 @@ if(!function_exists('create_user')){
                 $db_cred->transCommit();
                 $db_profile->transCommit();
                 
-                setAlert(['type'=>'success', 'desc'=>'Vendor Created successfully.']);
+                // setAlert(['type'=>'success', 'desc'=>'Vendor Created successfully.']);
                 return redirect()->to(site_url('site-management/all-admin/'));
 			    
                 

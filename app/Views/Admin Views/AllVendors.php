@@ -81,12 +81,12 @@ $this->section('main_content');
                       <td>
 
                           <form method="get" action="<?= site_url('site-management/edit-vendor')?>" class="d-inline">
-                            <input type="hidden" name="admin_id" value="<?= $row2['id'] ?>">
+                            <input type="hidden" name="id" value="<?= $row2['id'] ?>">
                             <input type="submit" class="btn btn-warning" onclick="return confirm('Are you sure to edit vendor?');" value="Edit">
                           </form>
 
                           <form method="post" action="<?= site_url('site-management/delete-vendor')?>" class="d-inline">
-                            <input type="hidden" name="admin_id" value="<?= $row2['id'] ?>">
+                            <input type="hidden" name="id" value="<?= $row2['id'] ?>">
                             <input type="submit" class="btn btn-danger" onclick="return confirm('Delete selected Vendor?');" value="Delete">
                           </form>
                       </td>

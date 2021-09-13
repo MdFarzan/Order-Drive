@@ -41,8 +41,7 @@ class VendorManagementController extends BaseController
 
         	//when method is post then
         
-            // echo "<hr>";
-            // var_dump($this->request->getVar());
+            
 
 			$passkey = $this->request->getVar('passkey');
 			$passkey = password_hash($passkey, PASSWORD_DEFAULT);
@@ -59,8 +58,7 @@ class VendorManagementController extends BaseController
 				'secondary_address'=>$this->request->getVar('secondary-address')?$this->request->getVar('secondary-address'):null
 			);
 
-			// var_dump($cred);
-			// echo "<hr>";
+			
 			// var_dump($profile);
 			
 			create_user(new VendorCredentialModel(), new VendorProfileModel(), $cred, $profile, false);
@@ -76,6 +74,74 @@ class VendorManagementController extends BaseController
 		else{
 
 			return view('/Admin Views/VendorCreation');
+		}
+
+	}
+
+	// edit vendor functionality
+	public function editVendor(){
+
+		$cred_db = new VendorCredentialModel();
+		$profile_db = new VendorProfileModel();
+		$id = $this->request->getVar('id');
+		// var_dump($id);
+		// die();
+		if($this->request->getMethod() == 'post'){
+
+
+			$cred_data = array(
+				'email'=>$this->request->getVar('email'),
+				'active_status'=>$this->request->getVar('active-status')=='on'?true:false
+			);
+
+			$profile_data = array(
+				'name'=>$this->request->getVar('full-name'),
+				'contact_no'=>$this->request->getVar('mobile-no'),
+				'primary_address'=>$this->request->getVar('primary-address'),
+				'secondary_address'=>$this->request->getVar('secondary-address')?$this->request->getVar('secondary-address'):null
+			);
+			
+			if(!empty(trim($this->request->getVar('passkey')))){
+				$passkey = $this->request->getVar('passkey');
+				$passkey = password_hash($passkey, PASSWORD_DEFAULT);
+				$cred_data['passkey'] = $passkey;
+			}
+			
+			
+			//start transaction
+			$cred_db->transBegin();
+			$profile_db->transBegin();
+
+			$cred_db->update($id, $cred_data);
+			$profile_db->where(['vendor_id' => $id])->set($profile_data)->update();
+
+			if($cred_db->transStatus() === FALSE || $profile_db->transStatus() === FALSE){
+				$cred_db->transRollback();
+				$profile_db->transRollback();
+				setAlert(['type'=>'danger', 'desc'=>'Unable to update Vendor!']);
+				return redirect()->to(site_url('site-management/all-vendor/'));
+			}
+
+			else{
+				$cred_db->transCommit();
+				$profile_db->transCommit();
+				setAlert(['type'=>'success', 'desc'=>'Vendor updated successfully.']);
+				return redirect()->to(site_url('site-management/all-vendor/'));
+			}
+			// end transaction
+			
+
+			
+		}
+
+
+		// when method is get
+		else{
+			$data =['cred_data' => $cred_db->where(['id' => $id])->find()[0],
+					'profile_data' => $profile_db->where(['vendor_id' => $id])->find()[0]
+			];
+
+			return view('/Admin Views/VendorModification', $data);
 		}
 
 	}

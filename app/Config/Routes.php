@@ -47,6 +47,7 @@ $routes->post('/site-management/delete-admin/', 'AdminManagement::deleteAdmin');
 $routes->match(['get', 'post'], 'site-management/add-vendor/', 'VendorManagementController::vendorCreation');
 $routes->get('site-management/all-vendor/', 'VendorManagementController::index');
 $routes->match(['get', 'post'], 'site-management/edit-vendor/', 'VendorManagementController::editVendor');
+$routes->post('site-management/delete-vendor/', 'VendorManagementController::deleteVendor');
 
 /*
  * --------------------------------------------------------------------

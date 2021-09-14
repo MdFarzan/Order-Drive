@@ -21,8 +21,11 @@ class VendorManagementController extends BaseController
 
 		);
 
-		else
-		$data = false;
+		else{
+			$data = array('cred_data' => false,
+							'profile_data' => false);
+		}
+		
 	
 
 		return view('/Admin Views/AllVendors', $data);
@@ -144,6 +147,39 @@ class VendorManagementController extends BaseController
 			return view('/Admin Views/VendorModification', $data);
 		}
 
+	}
+
+	// delete vendor functionality 
+	public function deleteVendor(){
+		if($this->request->getMethod() == 'post'){
+
+			$id = $this->request->getVar('id');
+			$cred_db = new VendorCredentialModel();
+			$profile_db = new VendorProfileModel();
+
+			//start transaction
+			$cred_db->transBegin();
+			$profile_db->transBegin();
+
+			$profile_db->where(['vendor_id'=> $id])->delete();
+			$cred_db->where(['id'=>$id])->delete();
+
+			if($cred_db->transStatus() === FALSE || $profile_db->transStatus() === FALSE){
+				$cred_db->transRollback();
+				$profile_db->transRollback();
+				setAlert(['type'=>'danger', 'desc'=>'Unable to delete Vendor!']);
+				return redirect()->to(site_url('site-management/all-vendor/'));
+			}
+
+			else{
+				$cred_db->transCommit();
+				$profile_db->transCommit();
+				setAlert(['type'=>'success', 'desc'=>'Vendor deleted successfully.']);
+				return redirect()->to(site_url('site-management/all-vendor/'));
+			}
+			// end transaction
+			
+		}
 	}
 
 

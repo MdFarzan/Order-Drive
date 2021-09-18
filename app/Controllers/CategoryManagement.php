@@ -18,15 +18,14 @@ class CategoryManagement extends BaseController
 		$category_db = new CategoryManagementModel();
 
 		if($this->request->getMethod() == 'post'){
-			
+			helper('Slugify');
 			$data = [
 				'name' => $this->request->getVar('category-name'),
-				'slug' => $this->request->getVar('category-slug'),
+				'slug' => slugify($this->request->getVar('category-slug')),
 				'p_id' => $this->request->getVar('parent-category')
 
 			];
 
-			// var_dump($data);
 			if($category_db->insert($data)){
 				setAlert(['type'=>'success', 'desc'=>'Category created successfully.']);
 				return redirect()->to(site_url('/site-management/all-categories'));

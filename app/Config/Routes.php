@@ -49,6 +49,8 @@ $routes->get('site-management/all-vendor/', 'VendorManagementController::index')
 $routes->match(['get', 'post'], 'site-management/edit-vendor/', 'VendorManagementController::editVendor');
 $routes->post('site-management/delete-vendor/', 'VendorManagementController::deleteVendor');
 
+// category management routes
+$routes->match(['get', 'post'],'site-management/add-category','CategoryManagement::addCategory');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -67,9 +67,18 @@ $this->section('main_content');
                             <label for="parent-category">Parent Category: </label>
                               <select class="custom-select" name="parent-category" id="parent-category">
                               <option value="0" >None</option>
-                             
-                              </select>
+                             <?php 
+                                if($category_data!=NULL){
+                                  foreach($category_data as $category){
 
+                             ?>
+                                 <option value="<?php echo $category['id'];?>"><?php echo $category['name']; ?> </option>
+                              
+                              <?php 
+                                  }
+                                }
+                              ?>
+                              </select>
                           </div>
                           <!-- form group ends -->
                       </div>

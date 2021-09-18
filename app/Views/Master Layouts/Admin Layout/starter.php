@@ -52,6 +52,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     
     <!-- datatable sorting plugin css -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
+
+    
+
 </head>
 <body class="hold-transition sidebar-mini">
 
@@ -327,7 +330,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=site_url('site-management/add-categories/');?>" class="nav-link">
+                <a href="<?=site_url('site-management/add-category/');?>" class="nav-link">
                   <i class="fas fa-bookmark nav-icon"></i>
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <p>Add Category</p>
@@ -510,5 +513,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" defer></script>
 <!-- custom script -->
 <script src="<?=base_url('admin custom-assets/script.js')?>"></script>
+<!-- select2 plugin -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </body>
 </html>

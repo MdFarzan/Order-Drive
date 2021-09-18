@@ -10,3 +10,12 @@
 .nav-sidebar .nav-treeview > .nav-item > .nav-link > .nav-icon{
     margin-left:10px !important;
 }
+
+/* style modification of style2 generated field */
+.select2-container--default.select2-container--focus .select2-selection--multiple, .select2-container--default.select2-container--focus .select2-selection--single, .select2-container--default .select2-selection--single {
+	height: calc(2.25rem + 2px) !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	top: 50% !important;
+	transform: translateY(-50%);
+}

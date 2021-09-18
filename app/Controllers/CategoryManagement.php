@@ -7,9 +7,25 @@ use App\Models\CategoryManagementModel;
 
 class CategoryManagement extends BaseController
 {
-	public function index()
-	{
-		//
+	//category displaying functionality
+	public function index(){
+		$category_db = new CategoryManagementModel();
+
+		//checking if has data
+		
+		if($category_db->countAll()>0){
+			$category_db->where('p_id', 0);
+			$data = $category_db->findAll();
+			$data = ['category_data' => $data];
+		}
+
+		else{
+			$data = ['category_data' => false];
+		}
+		
+		
+
+		return view('Admin Views/AllCategories', $data);
 	}
 
 	// add category functionality

@@ -76,12 +76,28 @@ class CategoryManagement extends BaseController
 
 	// edit category functionality
 	public function editCategory(){
-
-		$id = $this->request->getVar();
+		helper('Slugify');
+		$id = $this->request->getVar('id');
 		$category_db = new CategoryManagementModel();
 
 		if($this->request->getMethod() == 'post'){
-			var_dump($this->request->getVar());
+
+			$updated_data = [
+				'name' => $this->request->getVar('category-name'),
+				'p_id' => $this->request->getVar('parent-category'),
+				'slug' => slugify($this->request->getVar('category-slug'))
+				];
+			// var_dump($id);
+			// die();
+			if($category_db->where(['id' => $id])->set($updated_data)->update()){
+				setAlert(['type'=>'success', 'desc'=>'Category updated successfully.']);
+				return redirect()->to(site_url('/site-management/all-categories'));
+			}	
+
+			else{
+				setAlert(['type'=>'failed', 'desc'=>'Unable to update category!']);
+				return redirect()->to(site_url('/site-management/all-categories'));
+			}
 		}
 
 		else{
@@ -118,8 +134,6 @@ class CategoryManagement extends BaseController
 			}
 				
 			
-			// var_dump($child_categories);
-			// die();
 			return view('Admin Views/CategoryModification', $data);
 		}
 

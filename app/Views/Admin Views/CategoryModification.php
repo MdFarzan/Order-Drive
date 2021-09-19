@@ -44,6 +44,7 @@ $this->section('main_content');
                   <div class="row py-3">
                       <!-- col starts -->
                       <div class="col-md-6 px-4 px-md-5">
+                          <input type="hidden"  name="id" value="<?php echo $category['id'] ?>" />
                           <!-- form group starts -->
                           <div class="form-group">    
                               <label for="category-name">Category Name:</label>
@@ -146,13 +147,11 @@ $this->section('main_content');
 
                                     <form method="get" action="<?= site_url('site-management/edit-category')?>" class="d-inline">
                                         <input type="hidden" name="id" value="<?php echo $child['id']?>">
-                                        <input type="hidden" name="parent-id" value="<?php echo $child['p_id']?>">
                                         <input type="submit" class="btn btn-warning" onclick="return confirm('Are you sure to edit category?');" value="Edit">
                                     </form>
 
                                     <form method="post" action="<?= site_url('site-management/delete-category')?>" class="d-inline">
                                         <input type="hidden" name="id" value="<?php echo $child['id']?>">
-                                        <input type="hidden" name="parent-id" value="<?php echo $child['p_id']?>">
                                         <input type="submit" class="btn btn-danger" onclick="return confirm('It will delete child categories as well. Do you want to proceed?');" value="Delete">
                                     </form>
                                 </td>

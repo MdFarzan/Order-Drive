@@ -133,9 +133,25 @@ class CategoryManagement extends BaseController
 				$data['child_categories'] = false;
 			}
 				
-			
+																																																																																																																																																																																																																																																							
 			return view('Admin Views/CategoryModification', $data);
 		}
 
 	}
+
+	// delete category functionality
+	public function deleteCategory(){
+		if($this->request->getMethod() == 'post'){
+			
+			$category_db = new CategoryManagementModel();
+			$id = $this->request->getVar('id');
+			$category_db->where('id', $id);
+			$category_db->delete();
+			$category_db->where('p_id', $id);
+			$category_db->delete();
+			setAlert(['type'=>'success', 'desc'=>'Category deleted successfully.']);
+			return redirect()->to(site_url('/site-management/all-categories'));
+		}
+	}
+
 }

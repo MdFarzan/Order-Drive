@@ -343,8 +343,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- menu starts -->
           <?php if($privileges['product_management']==1){ ?>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item <?php if($current_link=='all-products' || $current_link=='add-product' || $current_link=='edit-product') echo 'menu-open'; ?>">
+            <a href="#" class="nav-link <?php if($current_link=='all-products' || $current_link=='add-product' || $current_link=='edit-product') echo 'active'; ?>">
               <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
               <i class="nav-icon fas fa-box-open"></i>
               <p>
@@ -354,27 +354,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=site_url('site-management/all-product/');?>" class="nav-link">
+                <a href="<?=site_url('site-management/all-products/');?>" class="nav-link <?php if($current_link=='all-products') echo 'active'; ?>">
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <i class="fas fa-boxes nav-icon"></i>
                   <p>All Products</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=site_url('site-management/add-product/');?>" class="nav-link">
+                <a href="<?=site_url('site-management/add-product/');?>" class="nav-link <?php if($current_link=='add-product') echo 'active'; ?>">
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <!-- <i class="fab fa-buffer nav-icon"></i> -->
                   <i class="nav-icon fas fa-cart-plus"></i>
                   <p>Add Product</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<?=site_url('site-management/inventory/');?>" class="nav-link">
+              <!-- <li class="nav-item">
+                <a href="<?=site_url('site-management/inventory/');?>" class="nav-link"> -->
                   <!-- <i class="far fa-circle nav-icon"></i> -->
-                  <i class="nav-icon fas fa-list-ol"></i>
+                  <!-- <i class="nav-icon fas fa-list-ol"></i>
                   <p>Inventory</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
           <?php } ?>

@@ -10,7 +10,7 @@ class ProductManagementModel extends Model
 	protected $table                = 'od_products';
 	protected $primaryKey           = 'id';
 	protected $useAutoIncrement     = true;
-	protected $insertID             = 0;
+	// protected $insertID             = 0;
 	protected $returnType           = 'array';
 	// protected $useSoftDelete        = false;
 	// protected $protectFields        = true;

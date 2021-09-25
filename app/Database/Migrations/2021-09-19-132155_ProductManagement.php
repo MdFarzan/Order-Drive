@@ -13,6 +13,7 @@ class ProductManagement extends Migration
 			'id' => [
 				'type' => 'INT',
 				'unsigned'	=>	true,
+				'auto_increment' => true,
 			],
 
 			'category_id' => [
@@ -58,6 +59,7 @@ class ProductManagement extends Migration
 			'id' => [
 				'type' => 'INT',
 				'unsigned' => true,
+				
 			],
 
 			'product_id' => [

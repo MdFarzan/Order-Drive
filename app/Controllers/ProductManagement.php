@@ -20,24 +20,38 @@ class ProductManagement extends BaseController
 
 		if($this->request->getMethod() == 'post'){
 
-			var_dump($this->request->getVar());
-			echo "<hr>";
-			var_dump($this->request->getFile('feature-image')->store());
-			echo "<hr>";
-			$gallery_imgs = $this->request->getFileMultiple('gallery-images');
-			// var_dump($gallery_imgs);
-
-			// foreach($gallery_imgs as $gal)
-			// 	var_dump($gal->path);
-
-
-			foreach($gallery_imgs as $file){   
- 
+			$file = $this->request->getFile('feature-image');
+			$name = md5(rand());
+			$ext = $file->getClientExtension();
+			$file->move(PRODUCT_FEATURE_IMG_PATH, $name.'.'.$ext);
+			if($file->hasMoved()){
+				$img_path = PRODUCT_FEATURE_IMG_PATH.'/'.$name.'.'.$ext;
 				
-				var_dump($file->move(PRODUCT_GALLERY_IMGS_PATH));
-              
- 
-			 }
+				$data = ['category_id' => $this->request->getVar('product-category'),
+						'name' => $this->request->getVar('product-name'),
+						'thumbnail_src' => $img_path,
+						'price' => $this->request->getVar('product-price'),
+						'short_desc' => $this->request->getVar('short-description'),
+						'long_desc' => $this->request->getVar('long-description')
+						];
+				
+				if($product_db->insert($data)){
+					setAlert(['type'=>'success', 'desc'=>'Product added successfully.']);
+					return redirect()->to(site_url('/site-management/all-products'));
+
+				}
+				
+				else{
+					setAlert(['type'=>'failed', 'desc'=>'Unable to add product!']);
+					return redirect()->to(site_url('/site-management/add-product'));
+				}
+
+			}
+
+			
+
+
+			
 
 			 
 			

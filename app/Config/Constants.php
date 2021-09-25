@@ -81,5 +81,5 @@ defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest auto
 
 //user defined constants
 defined('VENDOR_SIGNIN_SUPPORT') || define('VENDOR_SIGNIN_SUPPORT', 'example@gmail.com');
-defined('PRODUCT_FEATURE_IMG_PATH') || define('PRODUCT_FEATURE_IMG_PATH', 'uploads/product-feature-images');
-defined('PRODUCT_GALLERY_IMGS_PATH') || define('PRODUCT_GALLERY_IMGS_PATH', 'uploads/product-gallery-images');
+defined('PRODUCT_FEATURE_IMG_PATH') || define('PRODUCT_FEATURE_IMG_PATH', 'uploads');
+defined('PRODUCT_GALLERY_IMGS_PATH') || define('PRODUCT_GALLERY_IMGS_PATH', 'uploads');

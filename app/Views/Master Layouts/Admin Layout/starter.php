@@ -502,7 +502,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 
+<!-- adding CKEditor -->
+<script src="<?=base_url('admin assets/plugins/ckeditor/ckeditor.js')?>"></script>
 <!-- jQuery -->
+
 <script src="<?=base_url('admin assets/plugins/jquery/jquery.min.js')?>"></script>
 <script src="<?=base_url('admin custom-assets/jQueryTableSorter.js')?>"></script>
 <!-- Bootstrap 4 -->

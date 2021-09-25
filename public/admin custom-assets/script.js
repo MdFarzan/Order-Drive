@@ -19,6 +19,9 @@ $('#category-name').keyup(function(event){
 // function for search product category
     $('#parent-category').select2();
 
+// initializing ck edit for adding product description
+    CKEDITOR.replace( 'short-description' );
+    CKEDITOR.replace( 'long-description' );
 
 });
 

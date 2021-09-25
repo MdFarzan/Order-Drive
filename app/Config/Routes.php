@@ -54,6 +54,9 @@ $routes->match(['get', 'post'],'site-management/add-category','CategoryManagemen
 $routes->get('site-management/all-categories', 'CategoryManagement::index');
 $routes->match(['get', 'post'], 'site-management/edit-category', 'CategoryManagement::editCategory');
 $routes->post('site-management/delete-category','CategoryManagement::deleteCategory');
+
+// product Management routes
+$routes->match(['get', 'post'], 'site-management/add-product', 'ProductManagement::addProduct');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -7,10 +7,29 @@ use App\Models\ProductManagementModel;
 use App\Models\GalleryManagementModel;
 use App\Models\CategoryManagementModel;
 class ProductManagement extends BaseController
-{
-	public function index()
-	{
-		//
+{	
+	// getting all products functionality
+
+	public function index(){
+	
+		$product_db = new ProductManagementModel();
+		$category_db = new CategoryManagementModel();
+		$data = $product_db->findAll();
+		$cat_data = $category_db->findAll();
+		if($data){
+			$data = ['product_data' => $data,
+					'category_data' => $cat_data];
+		}
+
+		else{
+			$data = ['product_data' => false,
+					'category_data' => false];
+		}
+
+		// var_dump($data);
+
+		return view('Admin Views/AllProducts', $data);
+
 	}
 	
 	public function addProduct(){

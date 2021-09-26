@@ -59,6 +59,7 @@ $routes->post('site-management/delete-category','CategoryManagement::deleteCateg
 $routes->match(['get', 'post'], 'site-management/add-product', 'ProductManagement::addProduct');
 $routes->get('site-management/all-products', 'ProductManagement::index');
 $routes->match(['get', 'post'], 'site-management/edit-product', 'ProductManagement::editProduct');
+$routes->post('site-management/delete-product', 'ProductManagement::deleteProduct');
 
 
 /*

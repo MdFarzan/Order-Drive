@@ -100,10 +100,11 @@ class ProductManagement extends BaseController
 		$product_db = new ProductManagementModel();
 		$gallery_db = new GalleryManagementModel();
 		$category_db = new CategoryManagementModel();
-		$id = $this->request->getVar('id');
+		
 		
 
 		if($this->request->getMethod() == 'post'){
+			$id = $this->request->getVar('id');
 			$product_db->where('id', $id);
 			if($this->request->getFile('feature-image') != ''){
 				$file = $this->request->getFile('feature-image');
@@ -144,6 +145,8 @@ class ProductManagement extends BaseController
 
 		else{
 
+			$id = $this->request->getVar('id');
+			$product_db->where('id', $id);
 			$product_data = $product_db->find();
 			$category_data = $category_db->findAll();
 			$data = [];
@@ -163,6 +166,33 @@ class ProductManagement extends BaseController
 			return view('Admin Views/ProductModification', $data);
 		}
 
+		
+	}
+
+	// delete product functionality
+	public function deleteProduct(){
+		
+		if($this->request->getMethod() == 'post'){
+
+			$product_db = new ProductManagementModel();
+			
+
+			$id = $this->request->getVar('id');
+				if($product_db->where('id', $id)->delete()){
+					setAlert(['type'=>'success', 'desc'=>'Product deleted successfully.']);
+					return redirect()->to(site_url('/site-management/all-products'));
+				}
+
+				else{
+					setAlert(['type'=>'failed', 'desc'=>'Unable to delete product!']);
+					return redirect()->to(site_url('/site-management/all-products'));
+				}
+			
+		}
+
+		else{
+			die("You can't directly access this page");
+		}
 		
 	}
 }

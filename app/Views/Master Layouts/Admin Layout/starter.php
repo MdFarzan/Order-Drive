@@ -354,7 +354,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=site_url('site-management/all-products/');?>" class="nav-link <?php if($current_link=='all-products') echo 'active'; ?>">
+                <a href="<?=site_url('site-management/all-products/');?>" class="nav-link <?php if($current_link=='all-products' || $current_link=='edit-product') echo 'active'; ?>">
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <i class="fas fa-boxes nav-icon"></i>
                   <p>All Products</p>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,14 +36,26 @@
                     <nav>
                         
                         <div class="nav nav-tabs text-center justify-content-center" id="nav-tab" role="tablist">
-                            <a class="nav-link<?=!(bool)getFlashError('admin')?' active':''; ?>" id="nav-vendor-tab" data-toggle="tab" href="#nav-vendor" role="tab" aria-controls="nav-home" aria-selected="true">Sign in As <strong>Vendor</strong></a>
+                            <a class="nav-link<?php if(getFlashError('vendor') && !getFlashError('admin') || !getFlashError('admin') && !getFlashError('vendor') ){echo (' active');}  ?>" id="nav-vendor-tab" data-toggle="tab" href="#nav-vendor" role="tab" aria-controls="nav-home" aria-selected="true">Sign in As <strong>Vendor</strong></a>
                             
-                            <a class="nav-link<?=(bool)getFlashError('admin')?' active':''; ?>" id="nav-admin-tab" data-toggle="tab" href="#nav-admin" role="tab" aria-controls="nav-contact" aria-selected="false">Sign in As <strong>Admin</strong></a>
+                            <a class="nav-link<?php if(getFlashError('admin') && !getFlashError('vendor')) echo ' active'; ?>" id="nav-admin-tab" data-toggle="tab" href="#nav-admin" role="tab" aria-controls="nav-contact" aria-selected="false">Sign in As <strong>Admin</strong></a>
                         </div>
                     </nav>
                 
                     <div class="tab-content border border-left-2 px-2 px-md-5 py-4" id="nav-tabContent">
-                        <div class="tab-pane<?=!(bool)getFlashError('admin')?' active show':''; ?>" id="nav-vendor" role="tabpanel" aria-labelledby="nav-admin-tab">
+                        <div class="tab-pane<?php if(getFlashError('vendor') && !getFlashError('admin') || !getFlashError('admin') && !getFlashError('vendor')){ echo ' active show' ;} ?>" id="nav-vendor" role="tabpanel" aria-labelledby="nav-admin-tab">
+
+                        <!-- alert starts -->
+                        <?php if(getFlashError('vendor')){ 
+                                $err = getFlashError('vendor'); ?>
+                                <div class="alert alert-danger fade show dismissible">
+                                    <strong><?=$err['title'];?></strong><?=$err['msg'];?>
+                                    <button type="button" class="close" data-dismiss="alert"> <span class="">&times;</span></button>
+                                </div>        
+                            <?php } ?>
+                            
+                            <!-- alert ends -->
+
                             <!-- form starts -->
                                 <form action="vendor-sign-in/" class="py-md-4" method="post">
                                     <h3>Sign in as Vendor</h3>
@@ -84,7 +97,7 @@
                                 <!-- display sign in support end -->
                         </div>
                         
-                        <div class="tab-pane fade<?=(bool)getFlashError('admin')?' active show':''; ?>" id="nav-admin" role="tabpanel" aria-labelledby="nav-admin-tab">
+                        <div class="tab-pane fade<?php if(getFlashError('admin') && !getFlashError('vendor')) echo ' active show'; ?>" id="nav-admin" role="tabpanel" aria-labelledby="nav-admin-tab">
                             <!-- alert starts -->
                             <?php if(getFlashError('admin')){ 
                                 $err = getFlashError('admin'); ?>

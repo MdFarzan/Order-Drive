@@ -42,11 +42,15 @@ class VendorauthController extends BaseController
 
 					$profile_db->where('vendor_id', $id);
 					$profile_data = $profile_db->find();
+					$profile_data = $profile_data[0];
 
 					// setting session 
-					setSession(['credentials'=>$cred_data, 'profile'=>$profile_data]);
+					setSession(['vendor_credentials'=>$cred_data, 'vendor_profile'=>$profile_data]);
 					
-					var_dump($_SESSION['profile']);
+					
+					return redirect()->to('/vendor');
+					
+					
 				}
 
 				// when passkey doesn't match
@@ -81,4 +85,24 @@ class VendorauthController extends BaseController
 		}
 
 	}
+
+
+	public function getVendorView(){
+
+		if(checkSession('vendor_credentials')){
+    
+			
+			return view('Master Layouts/Vendor Layout/starter');
+			
+		  }
+		
+		  else{
+			
+			return redirect()->to(site_url());
+		  }
+
+		
+	}
+
+
 }

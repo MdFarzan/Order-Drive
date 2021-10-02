@@ -13,6 +13,11 @@ class Home extends BaseController
 		if(!(checkSession('credentials')==false && checkSession('privileges')==false)){
             return redirect()->to('site-management/dashboard');
         }
+
+		else if(!(checkSession('vendor_credentials')==false && checkSession('vendor_profile')==false)){
+			return redirect()->to('vendor');
+		}
+		
 		return view('index');
 	}
 }

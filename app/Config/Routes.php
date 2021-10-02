@@ -62,6 +62,9 @@ $routes->match(['get', 'post'], 'site-management/edit-product', 'ProductManageme
 $routes->post('site-management/delete-product', 'ProductManagement::deleteProduct');
 
 
+// vendor sign in/out routes
+$routes->post('vendor-sign-in/', 'VendorAuthController::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

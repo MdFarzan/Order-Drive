@@ -48,7 +48,7 @@ class VendorauthController extends BaseController
 					setSession(['vendor_credentials'=>$cred_data, 'vendor_profile'=>$profile_data]);
 					
 					
-					return redirect()->to('/vendor');
+					return redirect()->to('vendor/dashboard');
 					
 					
 				}
@@ -92,7 +92,7 @@ class VendorauthController extends BaseController
 		if(checkSession('vendor_credentials')){
     
 			
-			return view('Master Layouts/Vendor Layout/starter');
+			return view('Vendor Views/Dashboard');
 			
 		  }
 		

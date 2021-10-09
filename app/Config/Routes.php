@@ -64,7 +64,7 @@ $routes->post('site-management/delete-product', 'ProductManagement::deleteProduc
 
 // vendor sign in/out routes
 $routes->post('vendor-sign-in/', 'VendorAuthController::index');
-$routes->get('vendor/', 'VendorAuthController::getVendorView');
+$routes->get('vendor/dashboard', 'VendorAuthController::getVendorView');
 
 /*
  * --------------------------------------------------------------------

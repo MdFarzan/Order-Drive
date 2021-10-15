@@ -66,6 +66,9 @@ $routes->post('site-management/delete-product', 'ProductManagement::deleteProduc
 $routes->post('vendor-sign-in/', 'VendorAuthController::index');
 $routes->get('vendor/dashboard', 'VendorAuthController::getVendorView');
 
+// order placement routes
+$routes->get('vendor/place-order', 'VendorController::placeOrder');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -73,10 +73,56 @@ $this->section('main_content');
       </nav>
     <!-- product navbar ends -->
 
+    
+    <!-- shop starts -->
+<div class="container-fluid py-2 pt-3"> 
+    <div class="row">
+      <?php 
+        if($product_data != false){
+          foreach($product_data as $product){
+      ?>
+      <!-- product start -->
+      <div class="col-md-6 col-lg-4">
+          <div class="product-wrapper">
+              <a href="<?php echo current_url().'/product?id='.$product['id']; ?>" class="product-link">
+                <div class="product-thumb">
+                  <img src="<?php echo base_url($product['thumbnail_src']); ?>" alt="<?php echo $product['name']; ?>">
+                </div>
+                <div class="b-details">
+                  <h5 class="product-title"><?php if(strlen($product['name'])>78){ echo substr($product['name'], 0, 78),'...'; } else{ echo $product['name']; }  ?></h5>
+                  <span class="product-price">	<sup>&#8377;</sup> 19, 990</span>
+                </div>
+              </a>
+              <div class="text-center">
+                <button class="btn btn-primary add-to-cart" data-product-id="<?php echo $product['id'] ?>">Add to Cart</button>
+              </div>
+            
+          </div>
+      </div>
+      <!-- product ends -->
+
+    <?php 
+          }
+        }
+    ?>
+
+ 
 
 
 
+    </div>
 
+    <?php 
+      if(isset($pager))
+        echo $pager->links(); 
+    
+    ?>
+
+</div>
+
+
+
+    <!-- shop ends -->
       
         
 

@@ -47,6 +47,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- datatable sorting plugin css -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
+    <!-- shop css -->
+    <link rel="stylesheet" href="<?=base_url('vendor custom-assets/shop.css')?>">
+
     
 
 </head>
@@ -236,5 +239,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- select2 plugin -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<!-- js for shop -->
+<script src="<?=base_url('vendor custom-assets/shop.js')?>"></script>
 </body>
 </html>

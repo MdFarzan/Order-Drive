@@ -15,7 +15,7 @@ class Home extends BaseController
         }
 
 		else if(!(checkSession('vendor_credentials')==false && checkSession('vendor_profile')==false)){
-			return redirect()->to('vendor');
+			return redirect()->to('vendor/dashboard');
 		}
 		
 		return view('index');

@@ -41,7 +41,7 @@ $this->section('main_content');
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item <?php if($current_link == 'place-order'){echo ' active'; }?>">
+            <li class="nav-item active">
               <a class="nav-link" href="<?php echo current_url(); ?>">Home <span class="sr-only">(current)</span></a>
             </li>
             
@@ -49,8 +49,8 @@ $this->section('main_content');
               if($category_menu != false){
                 foreach($category_menu as $cm){
             ?>
-            <li class="nav-item <?php if($current_link == 'place-order'){echo ' active'; }?>">
-              <a class="nav-link" href="<?php echo current_url().'/category?'.$cm['slug']; ?>"><?php echo $cm['name']; ?> <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo current_url().'/category/'.$cm['slug']; ?>"><?php echo $cm['name']; ?> <span class="sr-only">(current)</span></a>
             </li>
 
             <?php 
@@ -115,7 +115,7 @@ $this->section('main_content');
     <?php 
       if(isset($pager))
         echo $pager->links(); 
-    
+        
     ?>
 
 </div>

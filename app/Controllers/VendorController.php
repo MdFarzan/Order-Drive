@@ -138,5 +138,46 @@ class VendorController extends BaseController
 		return view('Vendor Views/Category', $data);
 
 	}
+
+
+	// route for getting product
+	public function getProduct(){
+		
+		// getting category for menu
+		$category_db = new CategoryManagementModel();
+
+		//checking if has data
+		
+		if($category_db->countAll()>0){
+			$category_db->where('p_id', 0);
+			$data = $category_db->findAll();
+			$data = ['category_menu' => $data];
+		}
+
+		else{
+			$data = ['category_menu' => false];
+		}
+
+		$p_id = $this->request->getVar('id');
+		
+		// getting selected product data
+		$product_db = new ProductManagementModel();
+		
+		$product_data = $product_db->where('id', $p_id);
+		$p_data = $product_data->find();
+		
+		if($p_data){
+			$data['product_data'] = $p_data[0];
+			
+		}
+
+		else{
+			$data['product_data'] = false;
+		}
+		// var_dump($data['product_data']);
+		// die();
+
+		return view('Vendor Views/SingleProduct', $data)	;
+	}
 	
 }

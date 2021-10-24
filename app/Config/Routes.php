@@ -69,6 +69,7 @@ $routes->get('vendor/dashboard', 'VendorAuthController::getVendorView');
 // order placement routes
 $routes->get('vendor/place-order', 'VendorController::placeOrder');
 $routes->get('vendor/place-order/category/(:any)', 'VendorController::getCategory/$1');
+$routes->get('vendor/place-order/product', 'VendorController::getProduct');
 
 /*
  * --------------------------------------------------------------------

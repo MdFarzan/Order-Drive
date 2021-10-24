@@ -82,6 +82,38 @@
     color: #007BFF;
   }
   
+
+  .main-footer {
+    position: relative;
+  }
+
+  .ct-sidebar {
+    background: #fff;
+    overflow: auto;
+    height: 100%;
+    max-width: 250px;
+    min-width: 180px;
+    top:0;
+    padding-top:120px;
+  }
+
+  nav {
+    z-index: 1;
+  }
+
+  .sub-cat-exists {
+    margin-left: 180px;
+    padding: 15px;
+  }
+
+
+
+  @media (max-width:767px){
+    .ct-sidebar{
+      display: none;
+    }
+  }
+
   
   @media (min-width:768px) and (max-width:1199px){
     .product-price{

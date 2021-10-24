@@ -107,6 +107,37 @@
   }
 
 
+  /* single product page styling */
+
+  .full-product-img {
+    position: sticky;
+    top: 0%;
+  }
+
+  .full-product-img img {
+    width: 100%;
+    max-width:400px;
+    height: auto;
+  }
+
+  .long-desc table img {
+    width: 100%;
+    max-width: 30px;
+  }
+  
+  .long-desc tr, .long-desc td, .long-desc th {
+    border: 1px solid black;
+    padding: 8px 5px;
+  }
+
+  .long-desc-title {
+    margin-top: 2.5em;
+  }
+
+  .long-desc {
+    padding: 10px 15px;
+  }
+
 
   @media (max-width:767px){
     .ct-sidebar{

@@ -47,8 +47,8 @@ $this->section('main_content');
             
 
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search a product" aria-label="Search">
+          <form class="form-inline my-2 my-lg-0" method="GET" action="<?php echo base_url('vendor/place-order/search'); ?>">
+            <input class="form-control mr-sm-2" name="find" type="search" placeholder="Search a product" aria-label="Search">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
           </form>
           <a href="#" class="btn btn-light mx-2 px-2 d-md-none d-lg-block text-primary"><i class="fas fa-shopping-cart"></i></a>

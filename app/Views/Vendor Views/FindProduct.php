@@ -8,23 +8,7 @@ $this->section('main_content');
     
 ?>
 
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Place an Order</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Order Drive</a></li>
-              <li class="breadcrumb-item active">Place an order</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    
 
     <!-- Main content -->
     <div class="content">
@@ -41,8 +25,8 @@ $this->section('main_content');
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="<?php echo current_url(); ?>">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo base_url('/vendor/place-order'); ?>">Home <span class="sr-only">(current)</span></a>
             </li>
             
             <?php 
@@ -50,7 +34,7 @@ $this->section('main_content');
                 foreach($category_menu as $cm){
             ?>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo current_url().'/category/'.$cm['slug']; ?>"><?php echo $cm['name']; ?> <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="<?php echo base_url().'/vendor/place-order/category/'.$cm['slug']; ?>"><?php echo $cm['name']; ?> <span class="sr-only">(current)</span></a>
             </li>
 
             <?php 
@@ -64,7 +48,7 @@ $this->section('main_content');
 
           </ul>
           <form class="form-inline my-2 my-lg-0" method="GET" action="<?php echo base_url('vendor/place-order/search'); ?>">
-            <input class="form-control mr-sm-2" name="find" type="search" placeholder="Search a product" aria-label="Search">
+            <input class="form-control mr-sm-2" name="find" type="search" value="<?php echo $keywords; ?>" placeholder="Search a product" aria-label="Search">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
           </form>
           <a href="#" class="btn btn-light mx-2 px-2 d-md-none d-lg-block text-primary"><i class="fas fa-shopping-cart"></i></a>
@@ -72,7 +56,12 @@ $this->section('main_content');
         </div>
       </nav>
     <!-- product navbar ends -->
-
+      
+    <!-- header starts -->
+    <div class="search-header">    
+        <h3><?php if($product_data == false){echo "No Result found for: ";}else{ echo "Search result of : ";} ?><i class="text-info  "><?php echo $keywords; ?></i></h3>
+    </div>
+    <!-- header ends -->
     
     <!-- shop starts -->
 <div class="container-fluid py-2 pt-3"> 
@@ -84,7 +73,7 @@ $this->section('main_content');
       <!-- product start -->
       <div class="col-md-6 col-lg-4">
           <div class="product-wrapper">
-              <a href="<?php echo current_url().'/product?id='.$product['id']; ?>" class="product-link">
+              <a href="<?php echo base_url().'/vendor/place-order/product?id='.$product['id']; ?>" class="product-link">
                 <div class="product-thumb">
                   <img src="<?php echo base_url($product['thumbnail_src']); ?>" alt="<?php echo $product['name']; ?>">
                 </div>

@@ -71,6 +71,9 @@ $routes->get('vendor/place-order', 'VendorController::placeOrder');
 $routes->get('vendor/place-order/category/(:any)', 'VendorController::getCategory/$1');
 $routes->get('vendor/place-order/product', 'VendorController::getProduct');
 $routes->get('vendor/place-order/search', 'VendorController::findProduct');
+$routes->get('cart/', 'VendorController::getCart');
+$routes->get('fillCart/', 'VendorController::fillCart');
+
 
 /*
  * --------------------------------------------------------------------

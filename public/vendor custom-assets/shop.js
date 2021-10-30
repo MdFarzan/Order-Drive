@@ -9,6 +9,42 @@
     localStorage.setItem(pid, pid);
   }
 
+
+  // getting local storage product from database
+  function getProductForCart(){
+    if(localStorage.length>0){
+      var keys = [];
+      for(i=0;i<localStorage.length;i++){
+        keys[i] = localStorage.key(i);
+        
+      }
+
+
+      let req_url = window.location.origin;
+      
+
+      
+    
+      $.ajax({
+        // url: 'http://localhost:8080/fillCart',
+        url: req_url+'/fillCart',
+        data: {data: JSON.stringify(keys)},
+        success: function(res){
+                  console.log(res);
+                  $('#cart tbody').html(res);
+                  }
+      });
+    }
+
+    else{
+      $('#place-order').css('display','none');
+      $('#cart tbody').html("<tr>Please add few product first.</tr>");
+
+    }
+
+  }
+
+
   $(document).ready(function(){
 
 
@@ -24,6 +60,7 @@
     
     readyToChangeStatus();
 
+    
   });
   
   function readyToChangeStatus(){

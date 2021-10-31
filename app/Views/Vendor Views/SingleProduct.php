@@ -78,7 +78,7 @@ $this->section('main_content');
                             <span class="input-group-text" id="product-qty">Quantity</span>
                         </div>
                         
-                        <input type="number" class="form-control" min="1"  value="1" aria-label="product-quantity" aria-describedby="product-quantity">
+                        <input type="number" class="form-control p-qty-no" id="qty-<?php echo $product_data['id']; ?>" data-product-qty-ref="<?php echo $product_data['id']; ?>" min="1"  value="1" aria-label="product-quantity" aria-describedby="product-quantity">
 
                         
                     </div>
@@ -88,7 +88,7 @@ $this->section('main_content');
                 </div>
 
                 <div class="add-cart-con">
-                        <button class="py-2 btn btn-primary add-to-cart d-block" data-product-id="<?php echo $product_data['id']; ?>" style="width:200px;">Add to Cart</button>
+                        <button class="py-2 btn btn-primary add-to-cart d-block single-product-page-btn" data-product-id="<?php echo $product_data['id']; ?>" style="width:200px;">Add to Cart</button>
                         <a href="#<?php echo '?id='.$product_data['id']; ?>" class="py-2 btn btn-warning d-block" style="width:200px; margin-top:20px;">Buy Now</a>                        
                 </div>
 

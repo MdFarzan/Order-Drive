@@ -31,7 +31,8 @@ $this->section('main_content');
                         <th scope="col">Name</th>
                         <th scope="col">Image</th>
                         <th scope="col">Quantity</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">Price <sup>Per.</sup></th>
+                        <th scope="col">Total (Price X Qty.)</th>
                         <th scope="col">Remove</th>
                     </tr>
                 </thead>

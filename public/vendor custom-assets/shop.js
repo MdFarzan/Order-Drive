@@ -21,22 +21,26 @@
   // getting local storage product from database
   function getProductForCart(){
     if(localStorage.length>0){
-      var keys = [];
+      var data = [];
       for(i=0;i<localStorage.length;i++){
-        keys[i] = localStorage.key(i);
+        key = localStorage.key(i);
+
+
+        data[i] = JSON.parse(localStorage.getItem(key));
+        console.log(data[i]);
         
       }
 
-
-      let req_url = window.location.origin;
       
+      let req_url = window.location.origin;
+      console.log(JSON.stringify(data));
 
       
     
       $.ajax({
         // url: 'http://localhost:8080/fillCart',
         url: req_url+'/fillCart',
-        data: {data: JSON.stringify(keys)},
+        data: {data: JSON.stringify(data)},
         success: function(res){
                   console.log(res);
                   $('#cart tbody').html(res);
@@ -116,7 +120,7 @@
 
     // and if product carted without quantity
       else{
-        addToStorage(id, 1);        
+        addToStorage(id, "1");        
       
     }
 

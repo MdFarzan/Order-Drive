@@ -241,6 +241,7 @@ class VendorController extends BaseController
 		// getting localStorage sent id's
 		$keys = json_decode($this->request->getVar('data'));
 
+		
 		// getting product from that id
 		$product_db = new ProductManagementModel();
 
@@ -248,21 +249,40 @@ class VendorController extends BaseController
 		$total_amt=0;
 		for($i=0; $i<count($keys); $i++){
 
-			$product_db->where('id', $keys[$i]);
-			$product = $product_db->find();
+			$key = $keys[$i];
 
+			// var_dump($key);
+			// die();
+			
+			
+			// checking is given element object
+			if(is_object($key)){
+					
+				
+				$product_db->where('id', $key->id);
+				$product = $product_db->find();
+				
+			}
+
+			else{
+				continue;	
+			}
+
+			
+			
 			
 
 			if($product){
 				$product = $product[0];
 				
-				$total_amt += $product['price'];
+				$total_amt += $product['price'] * $key->qty;
 				$elm .= '<tr>'.
                     '<th scope="row" class="sr-no"></th>'.
                     '<td> <textarea class="cart-p-name" disabled="disabled" name="p-name[]">'.$product['name'].' </textarea></td>'.
                     '<td><img src='. $product['thumbnail_src'] .' class="cart-thumb" alt="" /></td>'.
-                    '<td><input type="number" class="cart-p-qty" name="qty[]" /></td>'.
-                    '<td>&#8377; '. $product['price'] .'</td>'.
+                    '<td><input type="number" class="cart-p-qty" value="' .$key->qty .'" name="qty[]" /></td>'.
+                    '<td class="per-p-price">&#8377; '. $product['price'] .'</td>'.
+					'<td class="price-qty">&#8377; '. $product['price'] * $key->qty .'</td>'.
 					'<td><button type="button" class="btn btn-danger remove-cart">&times;</button></td>'.
                     '</tr>';
 			}
@@ -270,7 +290,7 @@ class VendorController extends BaseController
 
 		}
 
-		$last_row = '<tr><th colspan="4"> Total Amount: </th><td><big><b>&#8377;</b> <span id="total_amt">'. $total_amt .'</span></big></td></tr>';
+		$last_row = '<tr><th colspan="5"> Total Amount: </th><td><big><b>&#8377;</b> <span id="total_amt">'. $total_amt .'</span></big></td><td></td></tr>';
 
 		echo $elm. $last_row;
 		

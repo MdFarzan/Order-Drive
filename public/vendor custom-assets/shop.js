@@ -98,6 +98,15 @@
   }
 
 
+  // removing product from cart
+  function removeProduct(){
+    alert("working");
+  }
+
+
+
+
+
   // function calling starts
   $(document).ready(function(){
 

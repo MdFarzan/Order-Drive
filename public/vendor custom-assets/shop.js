@@ -60,6 +60,10 @@
                     removeFromCart(this);
                   });
 
+                  if($('#cart tbody>tr').length <= 1){
+                    $('#cart-place-order').css('display', 'none');
+                  }
+                  
 
                   }
 
@@ -78,9 +82,7 @@
 
     
 
-    if($('#cart tbody').length<2){
-      $('#cart-place-order').css('display', 'none');
-    }
+    
 
   }
 
@@ -176,13 +178,19 @@
 
     $(elm).parent().parent().fadeOut('slow', function(){
       $(elm).parent().parent().remove();
+
+      if($('#cart tbody>tr').length <= 1){
+        $('#cart-place-order').css('display', 'none');  
+      }
+
     });
 
     let pay_amt = Number($('#payble_amt').html());
     $('#payble_amt').html(pay_amt-t_amt);
 
     localStorage.removeItem('product-'+pid);
-
+    
+    
 
   }
 

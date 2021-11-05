@@ -20,6 +20,10 @@
 
   // getting local storage product from database
   function getProductForCart(){
+
+    
+
+
     if(localStorage.length>0){
       var data = [];
       for(i=0;i<localStorage.length;i++){
@@ -27,13 +31,13 @@
 
 
         data[i] = JSON.parse(localStorage.getItem(key));
-        console.log(data[i]);
+        
         
       }
 
       
       let req_url = window.location.origin;
-      console.log(JSON.stringify(data));
+      
 
       
     
@@ -42,16 +46,35 @@
         url: req_url+'/fillCart',
         data: {data: JSON.stringify(data)},
         success: function(res){
-                  console.log(res);
+                  
                   $('#cart tbody').html(res);
+
+                  
+                  // changing quantity and other calculation on cart
+                  $(".cart-p-qty").change(function(){
+                    changeQuantityOnCart(this)
+                  }); 
+
+
                   }
+
+                  
       });
     }
 
     else{
-      $('#place-order').css('display','none');
-      $('#cart tbody').html("<tr>Please add few product first.</tr>");
+      if($('#cart tbody').length>1){
+        $('#place-order').css('display','none');
+        $('#cart tbody').html("<tr>Please add few product first.</tr>");
 
+        $('#cart-place-order').css('display', 'none');
+      }
+    }
+
+    
+
+    if($('#cart tbody').length<2){
+      $('#cart-place-order').css('display', 'none');
     }
 
   }
@@ -85,7 +108,7 @@
   // increasing/decreasing qty when qty changed
   function changeQty(elm){
     
-    alert();
+    
     q = $(elm).val()
     p_id = $('.single-product-page-btn').attr('data-product-id');
     
@@ -100,9 +123,56 @@
 
   // removing product from cart
   function removeProduct(){
-    alert("working");
+    
   }
 
+
+  // calculation on cart page
+  function changeQuantityOnCart(elm){
+
+    
+    let qty = Number($(elm).val());
+
+    if(qty==0 || qty<1){
+      $(elm).val(1)
+      alert("Quantity cannot be less than 1!");
+      return ;
+    }
+
+
+    let per_rate = Number($(elm).parent().next().find(".amt").html());
+    let old_t_rate = Number($(elm).parent().next().next().find(".t-amt").html());
+
+    let per_rate_elm = $(elm).parent().next().find(".amt");
+    let old_t_rate_elm = $(elm).parent().next().next().find(".t-amt");
+
+    // changing amount qty * rate of single product
+    old_t_rate_elm.html(qty*per_rate);
+    
+    // changing quantity in local Storage
+    let p_id = $(elm).attr('data-product-id');
+    
+    obj = JSON.parse(localStorage.getItem('product-'+p_id));
+    
+    // changing quantity in local storage
+    obj.qty = qty;
+    obj = JSON.stringify(obj);
+    localStorage.setItem('product-'+p_id, obj);
+
+    // changing payment amount
+    let old_pay_amt = Number($('#payble_amt').html());
+
+    $('#payble_amt').html((old_pay_amt-old_t_rate) + (per_rate*qty))
+    
+
+    
+
+
+
+
+
+
+  }
 
 
 
@@ -146,6 +216,9 @@
       changeQty(this);
     });
     
+    
+    
+
     
   });
   

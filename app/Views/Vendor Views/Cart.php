@@ -42,7 +42,7 @@ $this->section('main_content');
                 </tbody>
             </table>
             <hr />
-            <div class="text-center mb-2"><input type="submit" id="place-order" class="btn btn-primary" value="Place Order" /></div>
+            <div class="text-center mb-2"><input type="submit" id="cart-place-order" class="btn btn-primary" value="Place Order" /></div>
         </form>
     </div>
 

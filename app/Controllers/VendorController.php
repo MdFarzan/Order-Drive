@@ -283,7 +283,7 @@ class VendorController extends BaseController
                     '<td><input type="number" class="cart-p-qty" data-product-id="' . $key->id . '" value="' .$key->qty .'" name="qty[]" /></td>'.
                     '<td class="per-p-price">&#8377; <span class="amt">'. $product['price'] .'</span></td>'.
 					'<td class="price-qty">&#8377; <span class="t-amt">'. $product['price'] * $key->qty .'</span></td>'.
-					'<td><button type="button" data-product-id="' . $key->id . '" class="btn btn-danger remove-cart">&times;</button></td>'.
+					'<td><button type="button" data-product-id="' . $key->id . '" class="btn btn-danger remove-from-cart">&times;</button></td>'.
                     '</tr>';
 			}
 

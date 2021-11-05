@@ -49,11 +49,16 @@
                   
                   $('#cart tbody').html(res);
 
-                  
+                  // *** binding events here because this rendering using ajax
                   // changing quantity and other calculation on cart
                   $(".cart-p-qty").change(function(){
                     changeQuantityOnCart(this)
                   }); 
+
+                  // product removing from cart
+                  $('.remove-from-cart').click(function(){
+                    removeFromCart(this);
+                  });
 
 
                   }
@@ -121,10 +126,7 @@
   }
 
 
-  // removing product from cart
-  function removeProduct(){
-    
-  }
+  
 
 
   // calculation on cart page
@@ -164,16 +166,25 @@
 
     $('#payble_amt').html((old_pay_amt-old_t_rate) + (per_rate*qty))
     
-
-    
-
+  }
 
 
+  // removing product from cart
+  function removeFromCart(elm){
+    let pid = $(elm).attr('data-product-id');
+    let t_amt = Number($(elm).parent().prev().find('.t-amt').html());
 
+    $(elm).parent().parent().fadeOut('slow', function(){
+      $(elm).parent().parent().remove();
+    });
+
+    let pay_amt = Number($('#payble_amt').html());
+    $('#payble_amt').html(pay_amt-t_amt);
+
+    localStorage.removeItem('product-'+pid);
 
 
   }
-
 
 
 

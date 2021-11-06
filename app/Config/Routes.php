@@ -73,6 +73,7 @@ $routes->get('vendor/place-order/product', 'VendorController::getProduct');
 $routes->get('vendor/place-order/search', 'VendorController::findProduct');
 $routes->get('cart/', 'VendorController::getCart');
 $routes->get('fillCart/', 'VendorController::fillCart');
+$routes->post('create-order/', 'VendorController::createOrder');
 
 
 /*

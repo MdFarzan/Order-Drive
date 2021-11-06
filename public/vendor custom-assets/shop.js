@@ -196,6 +196,7 @@
 
 
 
+
   // function calling starts
   $(document).ready(function(){
 
@@ -236,6 +237,27 @@
     });
     
     
+    // displaying payment option
+    $('select#payment-options').change(function(){
+      
+
+      $('.payment-option').hide();
+      $('#card input').removeAttr('required');
+      $('#upi input').removeAttr('required');
+
+      switch($(this).val()){
+        case 'card':
+            $('#card').css('display','block');
+            $('#card input').attr('required', 'required');
+            break;
+
+        case 'upi':
+          $('#upi').css('display','block');
+          $('#upi input').attr('required', 'required');
+          break;
+      }
+
+    });
     
 
     

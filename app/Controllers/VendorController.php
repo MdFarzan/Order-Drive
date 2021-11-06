@@ -278,7 +278,7 @@ class VendorController extends BaseController
 				$total_amt += $product['price'] * $key->qty;
 				$elm .= '<tr>'.
                     '<th scope="row" class="sr-no"></th>'.
-                    '<td> <textarea class="cart-p-name" disabled="disabled" name="p-name[]">'.$product['name'].' </textarea></td>'.
+                    '<td> <textarea class="cart-p-name" disabled="disabled" name="p-name[]">'.$product['name'].' </textarea> <input type="hidden" name="product-id[] value="'.$product['id'].'" ></td>'.
                     '<td><img src='. $product['thumbnail_src'] .' class="cart-thumb" alt="" /></td>'.
                     '<td><input type="number" class="cart-p-qty" data-product-id="' . $key->id . '" value="' .$key->qty .'" name="qty[]" /></td>'.
                     '<td class="per-p-price">&#8377; <span class="amt">'. $product['price'] .'</span></td>'.
@@ -293,11 +293,15 @@ class VendorController extends BaseController
 		$last_row = '<tr><th colspan="5"> Payble Amount: </th><td><big><b>&#8377;</b> <span id="payble_amt">'. $total_amt .'</span></big></td><td></td></tr>';
 
 		echo $elm. $last_row;
-		
-		
-		
 
     }
+
+	// final step in order placement
+	public function createOrder(){
+
+		var_dump($this->request->getVar());
+
+	}
 
 
 

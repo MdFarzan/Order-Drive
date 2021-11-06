@@ -157,16 +157,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <!-- menu item ends -->
 
-          <!-- menu item starts -->
-          <li class="nav-item">
-            <a href="<?=site_url('vendor/payment-history');?>" class="nav-link <?php if($current_link=='payment-history') echo 'active'; ?>">
-            <i class="nav-icon fas fa-cash-register"></i>
-              <p>
-                Payment History
-              </p>
-            </a>
-          </li>
-          <!-- menu item ends -->
+          
 
           
           

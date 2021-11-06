@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\CategoryManagementModel;
 use App\Models\ProductManagementModel;
+use App\Models\OrderModel;
+use App\Models\PaymentModel;
 
 class VendorController extends BaseController
 {
@@ -278,7 +280,7 @@ class VendorController extends BaseController
 				$total_amt += $product['price'] * $key->qty;
 				$elm .= '<tr>'.
                     '<th scope="row" class="sr-no"></th>'.
-                    '<td> <textarea class="cart-p-name" disabled="disabled" name="p-name[]">'.$product['name'].' </textarea> <input type="hidden" name="product-id[] value="'.$product['id'].'" ></td>'.
+                    '<td> <textarea class="cart-p-name" disabled="disabled" name="p-name[]">'.$product['name'].' </textarea> <input type="hidden" name="product-id[]" value="'.$product['id'].'" ></td>'.
                     '<td><img src='. $product['thumbnail_src'] .' class="cart-thumb" alt="" /></td>'.
                     '<td><input type="number" class="cart-p-qty" data-product-id="' . $key->id . '" value="' .$key->qty .'" name="qty[]" /></td>'.
                     '<td class="per-p-price">&#8377; <span class="amt">'. $product['price'] .'</span></td>'.
@@ -298,8 +300,127 @@ class VendorController extends BaseController
 
 	// final step in order placement
 	public function createOrder(){
+		
+		$vendor_id = session()->get('vendor_profile')['vendor_id'];
+		
 
-		var_dump($this->request->getVar());
+		$product_ids = implode(",", $this->request->getVar('product-id'));
+		$product_qtys = implode(",", $this->request->getVar('qty'));
+
+		$addr = $this->request->getVar('delivery-addr');
+		$payment_mode = $this->request->getVar('payment-mode');
+
+		// if payment mode is bank then
+		if($payment_mode == 'card'){
+			$card_holder = $this->request->getVar('holder-name');
+			$card_no = $this->request->getVar('card-no');
+			$cvv = $this->request->getVar('cvv');
+			$exp = $this->request->getVar('expiry-date');
+
+			
+		}
+
+		// if payment mode is upi
+		else if($payment_mode == 'upi'){
+			$upi_id = $this->request->getVar('upi-id');
+			
+		}
+
+		$order_db = new OrderModel();
+		$payment_db = new PaymentModel();
+
+		// getting product prices
+		$product_db = new ProductManagementModel();
+		$pids = $this->request->getVar('product-id');
+		$pqtys = $this->request->getVar('qty');
+
+		$payble_amt = 0;
+
+		for($i=0; $i<count($pids); $i++){
+			$data = $product_db->where('id', $pids[$i])->find();
+			$data = $data[0];
+			$product_prices[$i] = $data['price'];
+			$payble_amt += ($data['price'] * $pqtys[$i]);
+		}
+
+		$product_prices = implode(',', $product_prices);
+		$l_id =  $order_db->countAll();
+		$ref_no = 'OD-'.$vendor_id.$l_id.date('dy').'-'.substr(sha1(rand(1,10)), 0, 5);;
+		
+		
+
+		
+		
+		$order_data = ["vendor_id" => $vendor_id,
+						"ref_no" => $ref_no,
+						 "product_ids" => $product_ids,
+						 "product_qtys" => $product_qtys,
+						 "product_prices" => $product_prices,
+						 "delivery_address" => $addr,
+						 "order_status" => 1,
+						];
+		
+		
+		
+		// starting transactions
+		$order_db->transBegin();
+		$payment_db->transBegin();
+		
+		$order_id = $order_db->insert($order_data);
+		
+		// checking is transaction successfull
+		if($order_db->transStatus() === false){
+			$order_db->transRollback();
+
+			echo "Unable to place order! Please contact from Admin!";
+		}
+
+		else{
+
+			$payment_data = ["id" => $order_id,
+						"vendor_id" => $vendor_id,
+						"payment_mode" => $payment_mode,
+						"payble_amt" => $payble_amt
+						];
+			
+			$payment_db->insert($payment_data);
+			
+			if($order_db->transStatus() === false || $payment_db->transStatus() === false){
+				$order_db->transRollback();
+				$payment_db->transRollback();
+			}
+
+			else{
+				$order_db->transCommit();
+				$payment_db->transCommit();
+
+				setAlert(['type'=>'success', 'desc'=>'Order placed successfully, please check Order History for more details.']);
+				
+				if($payment_mode == 'card' || $payment_mode == 'upi')
+					sleep(4);	
+
+				echo '<script>localStorage.clear();'. 
+						'window.location.href="'. base_url('/vendor/dashboard/').'"'.
+				
+				'</script>';
+				
+				
+			}
+
+
+
+		}
+		
+		
+
+		
+
+
+
+		
+		
+		
+		
 
 	}
 

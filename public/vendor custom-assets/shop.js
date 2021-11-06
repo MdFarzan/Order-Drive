@@ -62,6 +62,7 @@
 
                   if($('#cart tbody>tr').length <= 1){
                     $('#cart-place-order').css('display', 'none');
+                    $('#delivery-sec').css('display', 'none');
                   }
                   
 

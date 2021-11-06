@@ -42,11 +42,24 @@ $this->section('main_content');
                 </tbody>
             </table>
             <hr />
+            
+            <!-- delivery details starts -->
+                <div class="container p-2" id="delivery-sec">
+                    <div class="text-center">
+                        <div class="form-group mx-auto">
+                            <label for="delivery-addr">Will be delivered to:</label>
+                            <textarea class="form-control" name="delivery-addr" id="delivery-addr" rows="3" style="max-width:350px; margin:auto;" required="required"></textarea>
+                        </div>
+                    </div>
+                </div>
+            <!-- delivery details ends -->
 
+            <hr />
             <div class="payment-sec p-2" id="cart-place-order">
 
                 <div class="text-center m-3">
-                <select class="custom-select" id="payment-options">
+                <label for="exampleFormControlTextarea1">I will prefer payment as:</label>
+                <select name="payment-mode" class="custom-select" id="payment-options" required="required">
                     
                     <option value="cash" selected>Cash On Delivery</option>
                     <option value="card">Credit/Debit Card</option>
@@ -84,7 +97,8 @@ $this->section('main_content');
                                 <input type="text" name="cvv" class="form-control" id="cart-no" pattern="[0-9]{3}" placeholder="XXX">
                             </div>
                         </div>
-
+                        
+                        <p class="small text-info mx-auto"> We do not save/store the payment info (Like card details.)</p>
                     </div>
                 </div>
 
@@ -94,7 +108,7 @@ $this->section('main_content');
                             <div class="form-group">
                                 <label for="upi-id">Enter UPI: </label>
                                 <input type="text" name="upi-id" class="form-control" id="upi-id" placeholder="UPI ID">
-                                <p class="small">And accept the request on your upi merchant</p>
+                                
                             </div>
                         </div>
                     </div>

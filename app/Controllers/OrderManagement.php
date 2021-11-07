@@ -131,7 +131,61 @@ class OrderManagement extends BaseController
 		}
 
 	}
+
+
+	// getting pending orders which are not just-palaced
+	public function getPendingOrders(){
+		
+		$order_db = new OrderModel();
+		$payment_db = new PaymentModel();
+
+		// getting all orders
+		$order_data = $order_db->where("order_status != '1' AND order_status != '0' AND order_status != '4'")->orderBy('id', 'DESC')->findAll();
+		$payment_data = $payment_db->orderBy('id', 'DESC')->findAll();
+		
+		
+		if(count($order_data) != 0 || $order_data != null){
+			$data['order_data'] = $order_data;
+			$data['payment_data'] = $payment_data;
+		}
+
+		else{
+			$data['order_data'] = false;
+			$data['payment_data'] = false;
+		}
+
+
+		return view('Admin Views/PendingOrders', $data);
+
+	}
 	
+
+	// changing order status to different states
+	public function changeOrderStatus(){
+
+		$oid = $this->request->getVar('order-id');
+		$status = $this->request->getVar('order-status');
+
+		$order_db = new OrderModel();
+
+		if($status == -1){
+			setAlert(['type'=>'failed', 'desc'=>'Please specify a status!']);
+			return redirect()->to(site_url('/site-management/pending-orders/'));
+		}
+
+		if($order_db->where('id', $oid)->set(['order_status' => $status])->update()){
+
+			setAlert(['type'=>'success', 'desc'=>'Status changed successfully.']);
+				return redirect()->to(site_url('/site-management/pending-orders/'));
+		}
+
+		else{
+				setAlert(['type'=>'failed', 'desc'=>'Unable to change status!']);
+				return redirect()->to(site_url('/site-management/pending-orders/'));
+		}
+
+		
+	}
 
 
 	// end of this class

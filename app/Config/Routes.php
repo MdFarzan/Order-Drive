@@ -67,6 +67,10 @@ $routes->get('site-management/get-orderedItems/', 'OrderManagement::getOrderedIt
 $routes->get('site-management/new-orders/', 'OrderManagement::getNewOrders');
 // route to change order status to processing
 $routes->post('site-management/setOrderStatusToProcessing', 'OrderManagement::changeStatustoProcessing');
+$routes->get('site-management/pending-orders/', 'OrderManagement::getPendingOrders');
+// route to change order status to diffent states
+$routes->post('site-management/changeOrderStatus', 'OrderManagement::changeOrderStatus');
+
 
 
 

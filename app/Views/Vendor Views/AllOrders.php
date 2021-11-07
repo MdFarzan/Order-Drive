@@ -45,7 +45,7 @@ $this->section('main_content');
                     <th>Product List</th>
                     <th>Delivery Address</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                    
                 </thead>
             <!-- table header ends -->
             
@@ -102,12 +102,7 @@ $this->section('main_content');
                             
                         ?>
                        </td>
-                       <td>
-                         <form method="post" action="<?= site_url('/vendor/cancel-order?order-id='.$row['id'])?>" class="d-inline">
-                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                            <input type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to cancel this order?');" value="Cancel Order">
-                          </form>
-                       </td>
+
                   </tr>
                   <?php
                     } 

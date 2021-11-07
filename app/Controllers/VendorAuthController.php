@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\VendorCredentialModel;
 use App\Models\VendorProfileModel;
+use App\Models\OrderModel;
 
 class VendorauthController extends BaseController
 {	
@@ -90,9 +91,30 @@ class VendorauthController extends BaseController
 	public function getVendorView(){
 
 		if(checkSession('vendor_credentials')){
-    
 			
-			return view('Vendor Views/Dashboard');
+			$vendor_id = session()->get('vendor_credentials')['id'];
+			
+
+			$order_db = new OrderModel();
+			$all_orders = count($order_db->where('vendor_id', $vendor_id)->findAll());
+			$cancel_orders = count($order_db->where('order_status', '0')->where('vendor_id', $vendor_id)->findAll());
+			$just_placed = count($order_db->where('order_status', '1')->where('vendor_id', $vendor_id)->findAll());
+			$under_processing = count($order_db->where('order_status', '2')->where('vendor_id', $vendor_id)->findAll());
+			$under_shipping = count($order_db->where('order_status', '3')->where('vendor_id', $vendor_id)->findAll());
+			$delivered_orders = count($order_db->where('order_status', '4')->where('vendor_id', $vendor_id)->findAll());
+
+			
+			$data['all_orders'] = $all_orders;
+			$data['cancel_orders'] = $cancel_orders;
+			$data['just_placed'] = $just_placed;
+			$data['under_processing'] = $under_processing;
+			$data['under_shipping'] = $under_shipping;
+			$data['delivered_orders'] = $delivered_orders;
+			
+			
+			// die();
+			
+			return view('Vendor Views/Dashboard', $data);
 			
 		  }
 		

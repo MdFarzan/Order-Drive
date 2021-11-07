@@ -63,6 +63,7 @@ $routes->post('site-management/delete-product', 'ProductManagement::deleteProduc
 
 // order management routes
 $routes->get('site-management/all-orders/', 'OrderManagement::index');
+$routes->get('site-management/get-orderedItems/', 'OrderManagement::getOrderedItems');
 
 // vendor sign in/out routes
 $routes->post('vendor-sign-in/', 'VendorAuthController::index');

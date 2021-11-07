@@ -64,6 +64,12 @@ $routes->post('site-management/delete-product', 'ProductManagement::deleteProduc
 // order management routes
 $routes->get('site-management/all-orders/', 'OrderManagement::index');
 $routes->get('site-management/get-orderedItems/', 'OrderManagement::getOrderedItems');
+$routes->get('site-management/new-orders/', 'OrderManagement::getNewOrders');
+// route to change order status to processing
+$routes->post('site-management/setOrderStatusToProcessing', 'OrderManagement::changeStatustoProcessing');
+
+
+
 
 // vendor sign in/out routes
 $routes->post('vendor-sign-in/', 'VendorAuthController::index');

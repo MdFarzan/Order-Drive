@@ -86,5 +86,53 @@ class OrderManagement extends BaseController
 	}
 
 
+	// getting new orders (just-placed)
+	public function getNewOrders(){
+
+		$order_db = new OrderModel();
+		$payment_db = new PaymentModel();
+
+		// getting all orders
+		$order_data = $order_db->where('order_status', '1')->orderBy('id', 'DESC')->findAll();
+		$payment_data = $payment_db->orderBy('id', 'DESC')->findAll();
+		
+		
+		if(count($order_data) != 0 || $order_data != null){
+			$data['order_data'] = $order_data;
+			$data['payment_data'] = $payment_data;
+		}
+
+		else{
+			$data['order_data'] = false;
+			$data['payment_data'] = false;
+		}
+
+
+		return view('Admin Views/NewOrders', $data);
+
+	}
+
+	public function changeStatustoProcessing(){
+
+		$order_db = new OrderModel();
+
+		$oid = $this->request->getVar('order-id');
+		
+		if($order_db->where('id', $oid)->set(['order_status'=>'2'])->update()){
+
+			setAlert(['type'=>'success', 'desc'=>'Status changed to Processing successfully.']);
+			return redirect()->to(site_url('/site-management/new-orders/'));
+			
+		}
+
+		else{
+			setAlert(['type'=>'failed', 'desc'=>'Unable to update status!']);
+			return redirect()->to(site_url('/site-management/new-orders/'));
+		}
+
+	}
+	
+
+
 	// end of this class
 }

@@ -78,6 +78,9 @@ $routes->post('create-order/', 'VendorController::createOrder');
 // for getting order details
 $routes->get('vendor/order-history',"OrderDetailController::index");
 
+// for getting product list
+$routes->get('vendor/get-list',"OrderDetailController::getProductList");
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

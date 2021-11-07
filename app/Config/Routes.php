@@ -75,6 +75,8 @@ $routes->get('cart/', 'VendorController::getCart');
 $routes->get('fillCart/', 'VendorController::fillCart');
 $routes->post('create-order/', 'VendorController::createOrder');
 
+// for getting order details
+$routes->get('vendor/order-history',"OrderDetailController::index");
 
 /*
  * --------------------------------------------------------------------

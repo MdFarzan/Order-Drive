@@ -21,7 +21,7 @@ class OrderDetailController extends BaseController
 		$payment_db = new PaymentModel();
 
 		// getting all orders
-		$order_data = $order_db->where('vendor_id', $vendor_id)->findAll();
+		$order_data = $order_db->where('vendor_id', $vendor_id)->orderBy('id', 'DESC')->findAll();
 		$payment_data = $payment_db->where('vendor_id', $vendor_id)->orderBy('id', 'DESC')->findAll();
 		
 		

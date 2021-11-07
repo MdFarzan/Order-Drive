@@ -148,7 +148,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- menu item starts -->
           <li class="nav-item">
-            <a href="<?=site_url('vendor/order-history');?>" class="nav-link <?php if($current_link=='order-history') echo 'active'; ?>">
+            <a href="<?=site_url('vendor/order-history');?>" class="nav-link <?php if($current_link=='order-history' || $current_link == 'get-list') echo 'active'; ?>">
               <i class="nav-icon fas fa-history"></i>
               <p>
                 Order History

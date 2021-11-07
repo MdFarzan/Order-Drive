@@ -69,7 +69,7 @@ $this->section('main_content');
                       <td><?=  array_sum(explode(',', $row['product_qtys'])); ?></td>
                         
                       
-                      <td> <?= $payment_data[$i-1]['payble_amt']; ?> </td>
+                      <td>&#x20B9; <?= $payment_data[$i-1]['payble_amt']; ?> </td>
                       <td>
                         <a class="btn btn-info btn-sm" href="<?=base_url('/vendor/get-list?order-id='.$row['id'])?>">Get List</a>
                       </td>

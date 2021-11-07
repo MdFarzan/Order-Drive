@@ -71,7 +71,7 @@ $this->section('main_content');
                       
                       <td>&#x20B9; <?= $payment_data[$i-1]['payble_amt']; ?> </td>
                       <td>
-                        <a class="btn btn-info btn-sm" href="<?=base_url('/vendor/get-list?order-id='.$row['id'])?>">Get List</a>
+                        <a class="btn btn-info btn-sm" href="<?=base_url('/site-management/get-orderedItems?order-id='.$row['id'])?>">Get List</a>
                       </td>
 
                       <td><?= $row['delivery_address']; ?></td>

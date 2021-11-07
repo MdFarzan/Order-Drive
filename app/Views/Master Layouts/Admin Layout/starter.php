@@ -382,8 +382,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- menu starts -->
           <?php if($privileges['order_management']==1){ ?>
-          <li class="nav-item <?php if($current_link=='all-orders' || $current_link=='new-orders' || $current_link=='pending-orders') echo 'menu-open'; ?>">
-            <a href="#" class="nav-link <?php if($current_link=='all-orders' || $current_link=='new-orders' || $current_link=='pending-orders') echo 'active'; ?>">
+          <li class="nav-item <?php if($current_link=='all-orders' || $current_link == 'get-orderedItems' || $current_link=='new-orders' || $current_link=='pending-orders') echo 'menu-open'; ?>">
+            <a href="#" class="nav-link <?php if($current_link=='all-orders' || $current_link == 'get-orderedItems' || $current_link=='new-orders' || $current_link=='pending-orders') echo 'active'; ?>">
               <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
               <i class="nav-icon fas fa-archive"></i>
               <p>
@@ -393,7 +393,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=site_url('site-management/all-orders/');?>" class="nav-link <?php if($current_link=='all-orders') echo 'active'; ?>">
+                <a href="<?=site_url('site-management/all-orders/');?>" class="nav-link <?php if($current_link=='all-orders' || $current_link == 'get-orderedItems') echo 'active'; ?>">
                   
                   <i class="nav-icon fas fa-box"></i>
                   <p>All Orders</p>

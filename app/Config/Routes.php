@@ -71,7 +71,8 @@ $routes->get('site-management/pending-orders/', 'OrderManagement::getPendingOrde
 // route to change order status to diffent states
 $routes->post('site-management/changeOrderStatus', 'OrderManagement::changeOrderStatus');
 
-
+// reports routes
+$routes->get('site-management/sales-report/', 'ReportsManagement::getSalesReport');
 
 
 

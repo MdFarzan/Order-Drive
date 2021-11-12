@@ -73,6 +73,7 @@ $routes->post('site-management/changeOrderStatus', 'OrderManagement::changeOrder
 
 // reports routes
 $routes->get('site-management/sales-report/', 'ReportsManagement::getSalesReport');
+$routes->get('site-management/revenue-report/', 'ReportsManagement::getRevenueReport');
 
 
 

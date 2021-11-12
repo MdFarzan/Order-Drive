@@ -420,8 +420,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- menu starts -->
           <?php if($privileges['report_management']==1){ ?>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item <?php if($current_link=='sales-report' || $current_link == 'revenue-report')  echo 'menu-open'; ?>">
+            <a href="#" class="nav-link <?php if($current_link=='sales-report' || $current_link == 'revenue-report') echo 'active'; ?>">
               <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
@@ -431,14 +431,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=site_url('site-management/sales-report/');?>" class="nav-link">
+                <a href="<?=site_url('site-management/sales-report/');?>" class="nav-link <?php if($current_link=='sales-report') echo 'active'; ?>">
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <i class="fas fa-chart-area nav-icon"></i>
                   <p>Sales Report</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?=site_url('site-management/revenue-report/');?>" class="nav-link">
+                <a href="<?=site_url('site-management/revenue-report/');?>" class="nav-link <?php if($current_link=='revenue-report') echo 'active'; ?>">
                   <i class="nav-icon fas fa-chart-line"></i>
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <p>Revenue Report</p>

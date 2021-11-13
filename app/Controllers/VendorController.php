@@ -280,7 +280,7 @@ class VendorController extends BaseController
 				$total_amt += $product['price'] * $key->qty;
 				$elm .= '<tr>'.
                     '<th scope="row" class="sr-no"></th>'.
-                    '<td> <textarea class="cart-p-name" disabled="disabled" name="p-name[]">'.$product['name'].' </textarea> <input type="hidden" name="product-id[]" value="'.$product['id'].'" ></td>'.
+                    '<td><span class="p-name">'.$product['name'].' <input type="hidden" name="product-id[]" value="'.$product['id'].'" ></span></td>'.
                     '<td><img src='. $product['thumbnail_src'] .' class="cart-thumb" alt="" /></td>'.
                     '<td><input type="number" class="cart-p-qty" data-product-id="' . $key->id . '" value="' .$key->qty .'" name="qty[]" /></td>'.
                     '<td class="per-p-price">&#8377; <span class="amt">'. $product['price'] .'</span></td>'.
@@ -292,7 +292,7 @@ class VendorController extends BaseController
 
 		}
 
-		$last_row = '<tr><th colspan="5"> Payble Amount: </th><td><big><b>&#8377;</b> <span id="payble_amt">'. $total_amt .'</span></big></td><td></td></tr>';
+		$last_row = '<tr><th colspan="5"> Payble Amount: </th><td><big><b><span class="rupee-symbol"><i class="fas fa-rupee-sign"></i></span></b> <span id="payble_amt">'. $total_amt .'</span></big></td><td></td></tr>';
 
 		echo $elm. $last_row;
 

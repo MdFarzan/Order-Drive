@@ -24,7 +24,7 @@ $this->section('main_content');
     
     <div id="cart">
         <form method="post" action="create-order/">
-            <table class="table table-striped">
+            <table class="table table-striped table-responsive-md">
                 <thead>
                     <tr>
                         <th scope="col">S no.</th>

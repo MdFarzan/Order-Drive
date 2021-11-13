@@ -90,7 +90,7 @@ $this->section('main_content');
                 </div>
                 <div class="b-details">
                   <h5 class="product-title"><?php if(strlen($product['name'])>78){ echo substr($product['name'], 0, 78),'...'; } else{ echo $product['name']; }  ?></h5>
-                  <span class="product-price">	<sup>&#8377;</sup> 19, 990</span>
+                  <span class="product-price">	<span class="rupee-symbol"> <i class="fas fa-rupee-sign"></i></span> <?php echo $product['price']; ?></span>
                 </div>
               </a>
               <div class="text-center">

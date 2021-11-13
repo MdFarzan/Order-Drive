@@ -59,18 +59,18 @@ $this->section('main_content');
 
     
     <!-- shop starts -->
-    <div class="container-fluid bg-white p-4">
+    <div class="container-fluid bg-white single-product">
         <div class="row">
               
-              <div class="col col-md-4">
-                <figure class="full-product-img">
+              <div class="col-md-4">
+                <figure class="full-product-img text-center">
                     <img src="<?php echo base_url($product_data['thumbnail_src']) ?>" alt="" title="" />
                 </figure>
               </div>
 
-              <div class="col col-md-8 p-4">
+              <div class="col-md-8">
                 <h1><?php echo $product_data['name']; ?></h1>
-                <h2><span class="rupee-sym">&#x20B9;</span> <?php echo $product_data['price']; ?></h2>
+                <h3><span class="rupee-sym"><i class="fas fa-rupee-sign"></i></span> <?php echo $product_data['price']; ?></h3>
                 
                 <div class="product-qty" style="max-width:200px;">
                     <div class="input-group mb-3">
@@ -89,7 +89,7 @@ $this->section('main_content');
 
                 <div class="add-cart-con">
                         <button class="py-2 btn btn-primary add-to-cart d-block single-product-page-btn" data-product-id="<?php echo $product_data['id']; ?>" style="width:200px;">Add to Cart</button>
-                        <a href="#<?php echo '?id='.$product_data['id']; ?>" class="py-2 btn btn-warning d-block" style="width:200px; margin-top:20px;">Buy Now</a>                        
+                        
                 </div>
 
                 

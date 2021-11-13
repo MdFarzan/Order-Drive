@@ -20,3 +20,68 @@
 	top: 50% !important;
 	transform: translateY(-50%);
 }
+
+.product-wrapper .product-price {
+	font-size: 20px !important;
+}
+
+.rupee-sym {
+	font-size: 40px;
+}
+
+
+.product-short-desc table, .product-short-desc td {
+	border: 1px solid;
+	padding: 5px 8px;
+}
+
+
+#cart .p-name {
+	max-width: 300px !important;
+	display: block;
+}
+
+
+@media (max-width:767px){
+
+    .single-product h1 {
+        font-size: 25px;
+    }
+
+    .single-product .rupee-sym {
+        font-size: 22px;
+    }
+
+    
+
+    .single-product h2 {
+        font-size: 26px;
+    }
+
+    .single-product h3 {
+        font-size: 22px;
+    }
+
+    .cart-p-qty {
+        max-width: 85px !important;
+    }
+
+    #cart .p-name{
+        min-width:170px;
+    }
+
+}
+
+
+@media (min-width:768px){
+
+    .single-product {
+        padding: 20px 30px;
+    }
+
+
+}
+
+.product-short-desc table, .long-desc table{
+    width:100%;
+}

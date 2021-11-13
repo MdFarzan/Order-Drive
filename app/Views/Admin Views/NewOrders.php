@@ -69,7 +69,7 @@ $this->section('main_content');
                       <td><?=  array_sum(explode(',', $row['product_qtys'])); ?></td>
                         
                       
-                      <td>&#x20B9; <?php
+                      <td> <?php
                       
                       //$payment_data[$i-1]['payble_amt']; 
                         foreach($payment_data as $pay){

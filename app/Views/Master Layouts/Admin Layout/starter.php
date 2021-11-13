@@ -77,113 +77,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li> -->
-
-      <!-- Messages Dropdown Menu -->
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item"> -->
-            <!-- Message Start -->
-            <!-- <div class="media">
-              <img src="<?=base_url('admin assets/dist/img/user1-128x128.jpg')?>" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div> -->
-            <!-- Message End -->
-          <!-- </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item"> -->
-            <!-- Message Start -->
-            <!-- <div class="media">
-              <img src="<?=base_url('admin assets/dist/img/user8-128x128.jpg')?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div> -->
-            <!-- Message End -->
-          <!-- </a> -->
-          <!-- <div class="dropdown-divider"></div> -->
-          <!-- <a href="#" class="dropdown-item"> -->
-            <!-- Message Start -->
-            <!-- <div class="media">
-              <img src="<?=base_url('admin assets/dist/img/user3-128x128.jpg')?>" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div> -->
-            <!-- Message End -->
-          <!-- </a> -->
-          <!-- <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li> -->
-      <!-- Notifications Dropdown Menu -->
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li> -->
+     
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -250,8 +144,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- menu starts -->
           <?php if($privileges['admins_management']==1){ ?>
-          <li class="nav-item <?php if($current_link=='all-admin' || $current_link=='add-admin') echo 'menu-open'; ?>">
-            <a href="#" class="nav-link <?php if($current_link=='all-admin' || $current_link=='add-admin') echo 'active'; ?>">
+          <li class="nav-item <?php if($current_link=='all-admin' || $current_link=='edit-admin' || $current_link=='add-admin') echo 'menu-open'; ?>">
+            <a href="#" class="nav-link <?php if($current_link=='all-admin' || $current_link=='edit-admin' || $current_link=='add-admin') echo 'active'; ?>">
               <!-- <i class="fas fa-users-cog nav-icon"></i> -->
               <i class="fas fa-user-cog nav-icon"></i>
               <p>
@@ -261,7 +155,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item">
-                <a href="<?=site_url('site-management/all-admin/');?>" class="nav-link <?php if($current_link=='all-admin') echo 'active'; ?>">
+                <a href="<?=site_url('site-management/all-admin/');?>" class="nav-link <?php if($current_link=='all-admin' || $current_link=='edit-admin') echo 'active'; ?>">
                   <!-- <i class="far fa-circle"></i> -->
                   <i class="fas fa-users-cog nav-icon"></i>
                   <p>All Admin</p>
@@ -281,8 +175,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- menu starts -->
           <?php if($privileges['vendor_management']==1){ ?>
-          <li class="nav-item <?php if($current_link=='all-vendor' || $current_link=='add-vendor') echo 'menu-open'; ?>">
-            <a href="#" class="nav-link <?php if($current_link=='all-vendor' || $current_link=='add-vendor') echo 'active'; ?>">
+          <li class="nav-item <?php if($current_link=='all-vendor' || $current_link=='add-vendor' || $current_link=='edit-vendor') echo 'menu-open'; ?>">
+            <a href="#" class="nav-link <?php if($current_link=='all-vendor' || $current_link=='edit-vendor' || $current_link=='add-vendor') echo 'active'; ?>">
               <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
               <i class="nav-icon fas fa-users-cog"></i>
               <p>
@@ -292,7 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=site_url('site-management/all-vendor/');?>" class="nav-link <?php if($current_link=='all-vendor') echo 'active'; ?>">
+                <a href="<?=site_url('site-management/all-vendor/');?>" class="nav-link <?php if($current_link=='all-vendor' || $current_link=='edit-vendor') echo 'active'; ?>">
                   <i class="fas fa-users nav-icon"></i>
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <p>All Vendors</p>
@@ -312,8 +206,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- menu starts -->
           <?php if($privileges['category_management']==1){ ?>
-          <li class="nav-item <?php if($current_link=='all-categories' || $current_link=='add-category') echo 'menu-open'; ?>">
-            <a href="#" class="nav-link <?php if($current_link=='all-categories' || $current_link=='add-category') echo 'active'; ?>">
+          <li class="nav-item <?php if($current_link=='all-categories' || $current_link=='edit-category' || $current_link=='add-category') echo 'menu-open'; ?>">
+            <a href="#" class="nav-link <?php if($current_link=='all-categories' || $current_link=='edit-category' || $current_link=='add-category') echo 'active'; ?>">
               <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
               <i class="nav-icon fas fa-border-all"></i>
               <p>
@@ -323,7 +217,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?=site_url('site-management/all-categories/');?>" class="nav-link <?php if($current_link=='all-categories') echo 'active'; ?>">
+                <a href="<?=site_url('site-management/all-categories/');?>" class="nav-link <?php if($current_link=='all-categories' || $current_link=='edit-category') echo 'active'; ?>">
                   <!-- <i class="far fa-circle nav-icon"></i> -->
                   <i class="fas fa-th-list nav-icon"></i>
                   <p>All Categories</p>

@@ -123,7 +123,7 @@ $this->section('main_content');
             <!-- card ends -->
 
             <!-- form group starts -->
-            <input type="submit" class="btn btn-primary" value="Create Admin" />
+            <input type="submit" class="btn btn-primary" value="Create Vendor" />
 
             <!-- form group ends -->
 

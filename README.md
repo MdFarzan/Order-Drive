@@ -7,14 +7,14 @@ An Order Management System built for my BCA final semester synopsis.
 HTML5, CSS3, Javascript, PHP, SQL.
 
 ### Templates
-CodeIgniter 4 AppStarter Template,
+CodeIgniter 4 AppStarter Template,<br />
 AdminLTE Dashboard
 
 ### Database
 MySQL
 
 ### Frameworks
-Bootstrap 
+Bootstrap, <br />
 CodeIgniter 4
 
 
@@ -25,8 +25,8 @@ jQuery
 FontAwesome
 
 ### Plugins
-DataTable,
-Select 2,
+DataTable,<br />
+Select 2,<br />
 CKEditor
 
 ### Package Manager

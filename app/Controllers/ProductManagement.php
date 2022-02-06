@@ -161,8 +161,7 @@ class ProductManagement extends BaseController
 				$data['category_data'] = false;
 			}
 
-			// var_dump($data);
-			// die();
+			
 			return view('Admin Views/ProductModification', $data);
 		}
 

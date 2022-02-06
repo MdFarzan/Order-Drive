@@ -46,10 +46,7 @@ if(!function_exists('create_user')){
             $db_profile = $db_privileges;
             $profile_data = $priv_data;
             
-            // var_dump($cred_data);
-            // echo "<hr>";
-            // var_dump($profile_data);
-            // $id = $db_cred->insert($cred_data);
+     
             
 
             //starting transaction

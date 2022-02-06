@@ -98,14 +98,13 @@ class VendorController extends BaseController
 
 				// getting category products
 				$product_data = $product_db->where('category_id', $cat_id)->paginate(12);
-				// var_dump($product_data);
-				// die($cat_id);
+				
 			}
 
 			
 			// if has sub categories
 			else{
-				// var_dump($data['sub_category_menu']);
+				
 
 				$q = "(category_id="."'".$data['sub_category_menu'][0]['id']."'";
 				foreach($data['sub_category_menu'] as $c){
@@ -133,9 +132,7 @@ class VendorController extends BaseController
 				$data['product_data'] = false;
 			}
 
-			// echo $cat_id;
-		// var_dump($data['product_data']);
-		// die();
+		
 		
 		return view('Vendor Views/Category', $data);
 
@@ -176,8 +173,7 @@ class VendorController extends BaseController
 		else{
 			$data['product_data'] = false;
 		}
-		// var_dump($data['product_data']);
-		// die();
+		
 
 		return view('Vendor Views/SingleProduct', $data)	;
 	}
@@ -253,8 +249,7 @@ class VendorController extends BaseController
 
 			$key = $keys[$i];
 
-			// var_dump($key);
-			// die();
+			
 			
 			
 			// checking is given element object

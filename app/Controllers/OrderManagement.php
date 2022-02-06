@@ -77,8 +77,7 @@ class OrderManagement extends BaseController
 			$data = false;
 		}
 
-		// var_dump($data);
-		// die();
+		
 
 		return view("Admin Views/OrderedItemsList",$data);
 

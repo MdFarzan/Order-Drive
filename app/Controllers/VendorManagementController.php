@@ -62,7 +62,7 @@ class VendorManagementController extends BaseController
 			);
 
 			
-			// var_dump($profile);
+			
 			
 			create_user(new VendorCredentialModel(), new VendorProfileModel(), $cred, $profile, false);
 			

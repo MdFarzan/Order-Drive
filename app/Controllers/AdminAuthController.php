@@ -18,18 +18,7 @@ class AdminAuthController extends BaseController
 		$email = $data['user-mail'];
 		$passkey = $data['user-passkey'];
 		$remember_token = isset($data['remember-me'])?true:false;
-		// var_dump($email, $passkey, $remember_token);
-
-		//calling function
-		// if(SignIn($db, $email, $passkey, $remember_token, true)){
-		// 	return redirect()->to('/site-management');
-			
-		// }
-
-		// else{
-		// 	// die('wrong password');
-		// 	//setting error
-		// }
+		
 
 		$signal = SignIn($db, $email, $passkey, $remember_token, true);
 		switch($signal){

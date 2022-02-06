@@ -144,37 +144,7 @@ $this->section('main_content');
             </div>
             <!-- card ends -->
 
-            <!-- card starts -->
-           <div class="card">
-              <div class="card-header"><div class="card-title">Product Gallery:</div></div>
-              <!-- row starts -->
-                  <div class="row py-3">
-
-                      <!-- col starts -->
-                      <div class="col-md-12 px-md-5">
-                          <!-- form group starts -->
-                          <div class="form-group">
-                          <div class="input-group">
-                              <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="gallery-images[]" id="product-gallery" aria-describedby="product-gallery" accept="image/*" multiple />
-                                <label class="custom-file-label" for="product-gallery">Choose file</label>
-                              </div>
-                              <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="remove"></button>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- form group ends -->
-                      </div>
-                      <!-- col ends -->
-                      
-                      
-                      
-
-                  </div>
-              <!-- row ends -->
-            </div>
-            <!-- card ends -->
+            
 
             <!-- form group starts -->
             <input type="submit" class="btn btn-primary" value="Add Product" />

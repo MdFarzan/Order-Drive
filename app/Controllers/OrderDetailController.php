@@ -80,8 +80,7 @@ class OrderDetailController extends BaseController
 			$data = false;
 		}
 
-		// var_dump($data);
-		// die();
+		
 
 		return view("Vendor Views/OrderedProductList",$data);
 	}

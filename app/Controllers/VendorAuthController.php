@@ -112,7 +112,7 @@ class VendorauthController extends BaseController
 			$data['delivered_orders'] = $delivered_orders;
 			
 			
-			// die();
+			
 			
 			return view('Vendor Views/Dashboard', $data);
 			

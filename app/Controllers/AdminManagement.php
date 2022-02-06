@@ -22,8 +22,7 @@ class AdminManagement extends BaseController
 
         //when method is post then
         if($this->request->getMethod()=='post'){
-            // echo "<hr>";
-            // var_dump($this->request->getVar());
+            
 
 			$passkey = $this->request->getVar('passkey');
 			$passkey = password_hash($passkey, PASSWORD_DEFAULT);
@@ -43,9 +42,7 @@ class AdminManagement extends BaseController
 				'report_management'=>$this->request->getVar('report-management')?true:false
 			);
 
-			// var_dump($creden);
-			// echo "<hr>";
-			// var_dump($priv);
+			
 
 			create_user(new AdminAuthModel(), new AdminPrivilegesModel(), $cred, $priv, true);
 
@@ -105,11 +102,7 @@ class AdminManagement extends BaseController
 							'report_management'=>$this->request->getVar('report-management')=='on' ? 1:0
 						];
 				
-			// echo "$id <br>";			
-			// var_dump($info_data);
-
-			// echo "<br>";
-			// var_dump($priv_data);
+			
 			
 			
 			$admin_db->transBegin();
@@ -117,7 +110,7 @@ class AdminManagement extends BaseController
 			$admin_db->update($id, $info_data);
 
 			$privileges_db->where(['admin_id'=> $id])->set($priv_data)->update();
-			// $privileges_db->update($priv_data);
+			
 			
 			if ($admin_db->transStatus() === false || $privileges_db->transStatus() === false) {
 				setAlert(['type'=>'failed', 'desc'=>'Unable to update admin!']);
@@ -139,7 +132,7 @@ class AdminManagement extends BaseController
 			//getting admin basic data
 			$admin_db->where(['id'=>$id]);
 			$b_data = $admin_db->find();
-			// var_dump($b_data);
+			
 
 			//getting admin privileges data
 			$privileges_db->where(['admin_id'=> $id]);
@@ -171,7 +164,7 @@ class AdminManagement extends BaseController
 
 			$privileges_db->where(['admin_id'=> $id])->delete();
 			$admin_db->where(['id'=>$id])->delete();
-			// $privileges_db->update($priv_data);
+			
 			
 			if ($admin_db->transStatus() === false || $privileges_db->transStatus() === false) {
 				setAlert(['type'=>'failed', 'desc'=>'Unable to delete admin!']);

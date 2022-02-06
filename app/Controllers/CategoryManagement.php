@@ -87,8 +87,7 @@ class CategoryManagement extends BaseController
 				'p_id' => $this->request->getVar('parent-category'),
 				'slug' => slugify($this->request->getVar('category-slug'))
 				];
-			// var_dump($id);
-			// die();
+			
 			if($category_db->where(['id' => $id])->set($updated_data)->update()){
 				setAlert(['type'=>'success', 'desc'=>'Category updated successfully.']);
 				return redirect()->to(site_url('/site-management/all-categories'));

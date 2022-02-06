@@ -32,4 +32,6 @@ CKEditor
 ### Package Manager
 Composer
 
+### License
+This project is unlicensed. Please see LICENSE.
 

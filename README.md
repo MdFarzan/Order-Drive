@@ -1,5 +1,9 @@
 # Order Drive
-An Order Management System built for my BCA final semester synopsis.
+An B2B Vendor Order Management System built for my BCA Final semester project. <br />
+In this, vendor places an order and admin process their order on different stages.
+
+## A Glance
+[Order drive screenshot](screenshot.jpg)
 
 ## Built Using
 

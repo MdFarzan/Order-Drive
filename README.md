@@ -3,7 +3,7 @@ An B2B Vendor Order Management System built for my BCA Final semester project. <
 In this, vendor places an order and admin process their order on different stages.
 
 ## A Glance
-[Order drive screenshot](screenshot.jpg)
+![Order drive screenshot](screenshot.jpg)
 
 ## Built Using
 
